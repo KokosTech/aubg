@@ -1,0 +1,57 @@
+// starting at 2 since 0/1 not primes, and getting input
+i = 2; n = input
+
+// just as the text's said - we need a table to cross out values
+table[n] = true
+table[0..1] = false
+
+// we loop to sqrt(n) as said in the example
+while i < sqrt(n):
+	// we skip (as the txt says) the non-primes
+	if(!table[i]) continue
+
+	// if we find a prime - we cross all of its prime*1,2,3..n/prime
+	// why n/prime you may ask - because otherwise we would be overflowing the table
+	for j = 2; i*j < n; ++j
+		table[i*j] = false // and just set them all to false
+	++i
+printing...
+end
+
+other things:
+1, 2 - cuz its not
+3, 4, 5, 6, 7, 8, 9, 10
+
+time complexity:
+	outer loop -> sqrt(n)
+	inner loop (only if not cross-out) -> n/i
+	overall: 1/2*n*log(n)
+space complexity: just n, you could optimize it to n-2 
+but does it really matter (and it could technically be made 
+down to n/2 - if we exclude even numbers as they are always non-prime)
+
+more detes for time complexity:
+---------inner--loop----------
+0 ------------------------ n/2
+- ========================
+- =================
+- ============
+- ======
+- ===
+- =
+-------------------------------
+-> n/i - complexity-wise for the inner loop 
+(looks like a logarithm but I'm no sure)
+=> to calculate the time complexity of the algorithm, 
+we would need the outerloop's context
+
+so it basically looks like a SUM(2..sqrt(n)){n/i}, 
+since n is constant we can pull it out
+=> n*SUM(2..sqrt(n)){1/i} since i runs to sqrt(n), 
+since this is where my math runs to - I would approximate it's
+~n*log(sqrt(n)) which is like 1/2*n*log(n)
+
+=> sqrt(n) * n/i
+=> i is 2 .. sqrt(n) => we can create a time series log(sqrt(n))
+=> time complexity is 1/2*n*log(n)
+=> BigO = n*log(n)
