@@ -30,24 +30,42 @@ class Queue : public IContainer<T> {
 
     std::optional<T> Remove() {
         if(!this->start) return std::nullopt;
+
         T copy_removed = this->start->data;
         this->start = this->start->next;
         return copy_removed;
-        
     }
 
     std::optional<T> Peek() {
-        return std::nullopt;
+        if (!this->start) return std::nullopt;
+        return this->start->data;
     }
 };
 
-// // LIFO (Last in, First out)
-// template <typename T>
-// class Stack : IContainer {
-//    public:
-//     void Add(T t) {}
+// LIFO (Last in, First out)
+template <typename T>
+class Stack : public IContainer<T> {
+private:
+    std::shared_ptr<Node<T>> top;
+public:
+    Stack() : top(nullptr) {}
 
-//     std::optional<T> Remove() {}
+    void Add(T t) {
+        std::shared_ptr<Node<T>> new_node = std::make_shared<Node<T>>(t);
+        new_node->next = this->top;
+        this->top = new_node;
+    }
 
-//     std::optional<T> Peek() {}
-// };
+    std::optional<T> Remove() {
+        if (!this->top) return std::nullopt;
+
+        T copy_removed = this->top->data;
+        this->top = this->top->next;
+        return copy_removed;
+    }
+
+    std::optional<T> Peek() {
+        if (!this->top) return std::nullopt;
+        return this->top->data;
+    }
+};
