@@ -1,11 +1,9 @@
 #pragma once
 
-#include <memory>
 #include <optional>
-
 #include "interfaces.hpp"
 
-// FIFO (First in, First out)
+// Data Structure FIFO (First in, First out)
 template <typename T>
 class Queue : public IContainer<T> {
    private:
@@ -42,7 +40,7 @@ class Queue : public IContainer<T> {
     }
 };
 
-// LIFO (Last in, First out)
+// Data Structure LIFO (Last in, First out)
 template <typename T>
 class Stack : public IContainer<T> {
 private:
