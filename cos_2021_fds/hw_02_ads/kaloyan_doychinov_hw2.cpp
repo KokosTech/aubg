@@ -1,6 +1,14 @@
 /* ============================
        Kaloyan Doychinov
+        / 200 275 606 /
        COS 2021 A - FDS
+
+         Known bugs:
+- for the program - I haven't
+found any (probably there are)
+- for me - this time, I had to
+use an IDE, couldn't bare not
+seeing the methods & attributes
 ============================ */
 
 #include <fstream>
@@ -10,6 +18,8 @@
 
 #include "implementations.hpp"
 
+static const std::string INPUT_FILE = "code.txt";
+
 int main() {
     Queue<std::string> character_queue;
     Queue<std::string> sentence_queue;
@@ -17,7 +27,9 @@ int main() {
     Stack<std::shared_ptr<Queue<std::string> > > decode_stack;
     std::shared_ptr<Queue<std::string> > word_queue = nullptr;
 
-    std::ifstream inputFile("code.txt", std::ios::in);
+    // Input Data
+
+    std::ifstream inputFile(INPUT_FILE, std::ios::in);
     try {
         if (!inputFile.is_open())
             throw std::invalid_argument("File not found!");
@@ -28,16 +40,16 @@ int main() {
 
     char ch;
     while (inputFile >> std::noskipws >> ch) {
+        // stackoverflow helped on the char to str conversion - https://stackoverflow.com/questions/17201590/how-can-i-create-a-string-from-a-single-character
         character_queue.Add(std::string{ch});
     }
 
+    inputFile.close();
+
+    // Actual Logic
 
     std::optional<std::string> cur = character_queue.Remove();
-    // std::cout << "KYS " << !cur << cur.has_value() << cur.value() << std::endl;
     while (cur && cur.has_value() && cur.value() != "") {
-        // std::cout << "DEBUG:" << cur.value() << ":DEBUG" << std::endl;
-        // std::cout << word_queue << std::endl;
-        // Perfect ^
         if (cur.value() == "(") {
             auto new_word_queue =
                     std::make_shared<Queue<std::string> >();
@@ -47,8 +59,6 @@ int main() {
             }
 
             word_queue = new_word_queue;
-
-
         } else if (cur.value() == ")") {
             std::string word = "";
             std::optional<std::string> cur2 = word_queue->Remove();
@@ -59,8 +69,8 @@ int main() {
 
             sentence_queue.Add(word);
 
-            if(decode_stack.Peek() != std::nullopt) {
-                std::optional<std::shared_ptr<Queue<std::string>>> tobe = decode_stack.Remove();
+            if (decode_stack.Peek() != std::nullopt) {
+                std::optional<std::shared_ptr<Queue<std::string> > > tobe = decode_stack.Remove();
                 word_queue = tobe.value();
             }
         } else {
