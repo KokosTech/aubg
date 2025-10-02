@@ -1,3 +1,0 @@
-/Users/kaloyandoychinov/Documents/aubg_cloud/fa_25/aubg/cos_2021_fds/hw_02_ads/cmake-build-debug/CMakeFiles/hw_02_ads.dir
-/Users/kaloyandoychinov/Documents/aubg_cloud/fa_25/aubg/cos_2021_fds/hw_02_ads/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/kaloyandoychinov/Documents/aubg_cloud/fa_25/aubg/cos_2021_fds/hw_02_ads/cmake-build-debug/CMakeFiles/rebuild_cache.dir
