@@ -15,7 +15,7 @@ class Queue : public IContainer<T> {
    public:
     Queue() : start(nullptr), end(nullptr) {}
 
-    void Add(T t) {
+    void Add(T t) override {
         std::shared_ptr<Node<T>> new_node = std::make_shared<Node<T>>(t);
         new_node->next = nullptr;
 
@@ -28,7 +28,7 @@ class Queue : public IContainer<T> {
         }
     }
 
-    std::optional<T> Remove() {
+    std::optional<T> Remove() override {
         if(!this->start) return std::nullopt;
 
         T copy_removed = this->start->data;
@@ -36,7 +36,7 @@ class Queue : public IContainer<T> {
         return copy_removed;
     }
 
-    std::optional<T> Peek() {
+    std::optional<T> Peek() override {
         if (!this->start) return std::nullopt;
         return this->start->data;
     }
@@ -50,13 +50,13 @@ private:
 public:
     Stack() : top(nullptr) {}
 
-    void Add(T t) {
+    void Add(T t) override {
         std::shared_ptr<Node<T>> new_node = std::make_shared<Node<T>>(t);
         new_node->next = this->top;
         this->top = new_node;
     }
 
-    std::optional<T> Remove() {
+    std::optional<T> Remove() override {
         if (!this->top) return std::nullopt;
 
         T copy_removed = this->top->data;
@@ -64,7 +64,7 @@ public:
         return copy_removed;
     }
 
-    std::optional<T> Peek() {
+    std::optional<T> Peek() override {
         if (!this->top) return std::nullopt;
         return this->top->data;
     }
