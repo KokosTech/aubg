@@ -2,23 +2,29 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- * This class is used for the implementation of the Guilds in Proj1
+ * This class is used for the implementation of the steps 1-20 of Project 1 HW for COS2030 Java
  *
  * @author Kaloyan Doychinov
  * @version 07/10/25
  */
-
-
 public class Project1 {
     public static final int MEMBER_FEE = 25;
     public static final int GUILD_FEE = 1000;
     public static final int RECEIPT_WIDTH = 40;
 
+    /* printHBorder - this method prints a horizontal order
+     *
+     * @param nothing
+     * @return nothing
+     */
+    private static void printHBorder() {
+        System.out.println("-".repeat(RECEIPT_WIDTH));
+    }
+
     public static void main(String[] args) {
         //follow the instructions in the comments EXACTLY
         //write the line of code the comment asks for UNDER the comment
         //do NOT delete the comments
-
 
         //1. print the welcome statement
         System.out.println("Welcome to the Ankh-Morpork Patrician's Office - Department of Guild Accounting");
@@ -57,8 +63,8 @@ public class Project1 {
         }
 
         //11. calculate the minimum amount of money the user needs to deposit to register the guild
-        //    the value should be saved in a variable named minPayment 
-        double minPayment = GUILD_FEE + memberNumber * MEMBER_FEE;
+        //    the value should be saved in a variable named minPayment
+        double minPayment = GUILD_FEE + (double) memberNumber * MEMBER_FEE; // you may ask - why am i casting -> to prevent int overflow after multiplication
 
         //12. tell the user the minimum amount of money they have to deposit
         System.out.printf("The minimum payment to register the Guild of Seamstresses is $%,.2f%n", minPayment);
@@ -89,9 +95,7 @@ public class Project1 {
         printReceipt(guild); // do not alter this line of code
     }
 
-    /* finish this method! <-----------
-     *
-     * printReceipt - this method prints the formatted receipt
+    /* printReceipt - this method prints the formatted receipt
      *
      * @param Guild guild - the Guild object with values set in the main
      * @return nothing
@@ -102,21 +106,15 @@ public class Project1 {
         //    use getter methods from the Guild class with the mail object to print the formatted receipt
         //    the receipt is 40 characters wide
         Date now = new Date();
-        System.out.println("-".repeat(RECEIPT_WIDTH));
+
+        printHBorder();
         System.out.printf("| %-36s |%n", now);
         System.out.printf("| %-36s |%n", "");
-        System.out.printf("| %-10s %-25s |%n", "NEW GUILD:", guild.getName().substring(0,25));
+        System.out.printf("| %-10s %-25s |%n", "NEW GUILD:", guild.getName().substring(0, Math.min(25, guild.getName().length())));
         System.out.printf("| %-10s %-25s |%n", "MEMBERS:", guild.getMembers());
         System.out.printf("| %-10s $ %,-23.2f |%n", "BALANCE:", guild.getBalance());
         System.out.printf("| %-36s |%n", "");
         System.out.printf("| %-36s |%n", "Approved by A-M Patrician's Office");
-        System.out.println("-".repeat(RECEIPT_WIDTH));
-
-
-        //20. delete the 3 instructions below when you're done
-        System.out.print("Receipt is printed here. Here is what is being shipped ");
-        System.out.println(guild.getName());
-        System.out.println("Delete these instructions when done");
-
+        printHBorder();
     }
 }
