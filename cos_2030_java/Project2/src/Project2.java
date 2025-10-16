@@ -10,9 +10,16 @@ import java.util.Scanner;
 public class Project2 {
     private static final Scanner keyboard = new Scanner(System.in);
 
+        public static final int TAX = 100;
+        public static final int ASSASSINS_PRICE = 60;
+        public static final int SEAMSTRESSES_PRICE = 12;
+        public static final int THIEVES_PRICE = 25;
+
+
     /**
+     * printReceipt - this method formats and prints the receipt for the given transaction
      *
-     * @param data String
+     * @param data String - data to be printer
      * @return nothing
      */
     private static void printReceipt(String data) {
@@ -23,7 +30,6 @@ public class Project2 {
         System.out.println();
     }
 
-    //DO NOT ALTER THE MAIN METHOD
     public static void main(String[] args) {
         Accounts accounts = new Accounts();
 
@@ -43,15 +49,20 @@ public class Project2 {
     } //DO NOT ALTER THE MAIN METHOD
 
     public static boolean go(Accounts accounts) {
-        //WRITE YOUR CODE HERE
+        /*== guild name ==*/
+
         System.out.print("Which guild are you making a payment for today? ");
         String guildName = keyboard.nextLine().trim();
+
         char firstLetter = guildName.toUpperCase().charAt(0);
         guildName = firstLetter + guildName.substring(1).toLowerCase();
 
         if (firstLetter == 'Q') {
+            System.out.println("We're closed for the day, goodbye.");
             return false;
         }
+
+        /*== payment amount ==*/
 
         System.out.print("What was the amount of today's payment? ");
         double payment = keyboard.nextDouble();
@@ -62,11 +73,12 @@ public class Project2 {
             return true;
         }
 
+        /*== payment kind name ==*/
+
         System.out.print("What kind of payment - tax or donation? ");
         String paymentType = keyboard.nextLine().trim().toUpperCase();
 
-        // Start Receipt
-
+        // check if the guild is within the valid guild - ass, seams, thief
         if (!guildName.equalsIgnoreCase("assassins") && !guildName.equalsIgnoreCase("seamstresses") && !guildName.equalsIgnoreCase("thieves")) {
             printReceipt(
                     "To register a new guild, appear in person in front of the Patrician.\n" +
@@ -76,36 +88,31 @@ public class Project2 {
             return true;
         }
 
-        String toPrint;
+        /*== process payment ==*/
+
+        String receiptToBePrinted;
         switch (paymentType) {
             case "TAX":
-                if (payment < 100) {
+                if (payment < TAX) {
                     accounts.addToDonationFund(payment);
-                    toPrint = String.format("$ %,.2f is not enough for tax credit.%n  " +
+                    receiptToBePrinted = String.format("$ %,.2f is not enough for tax credit.%n  " +
                             "Thank you for the donation, Guild of %s", payment, guildName);
                 } else {
-                    double donation = payment % 100;
+                    double donation = payment % TAX;
                     double taxPayment = payment - donation;
-                    int months = (int) taxPayment / 100;
+                    int months = (int) taxPayment / TAX;
 
                     accounts.addToTaxFund(taxPayment);
-                    toPrint = String.format("Guild of %s tax payment of $ %,.2f confirmed ", guildName, taxPayment);
-                    toPrint += "(" + ((months > 11) ? (months / 12) + " years" : "") + ((months % 12 != 0) ? (months % 12) + " months" : "") + ").";
+                    receiptToBePrinted = String.format("Guild of %s tax payment of $ %,.2f confirmed ", guildName, taxPayment);
+                    receiptToBePrinted +=
+                            "(" + ((months > 11) ? (months / 12) + " years" : "") // check if there are years in the months
+                            + ((months > 11 && months % 12 != 0) ? " " : "")  // check if year and month have to be present
+                            + ((months % 12 != 0) ? (months % 12) + " months" : "") + ")."; // check if there should bn run
 
-                    // TODO: Fix
-                    if (months > 11) {
-                        if (months % 12 != 0) {
-                            toPrint += String.format("%d years %d months", months / 12, months % 12);
-                        } else {
-                            toPrint += months / 12 + "years";
-                        }
-                    } else {
-                        toPrint += months + "months";
-                    }
-//                    toPrint += "(" + months < 12 ? String.format("(%d months).", months) : String.format("(%d years %d months).", months / 12, months % 12) + ")";
+
                     if (donation > 0) {
                         accounts.addToDonationFund(donation);
-                        toPrint += String.format("%n  We're adding the residual $ %,.2f to the donation fund, thank you.", donation);
+                        receiptToBePrinted += String.format("%n  We're adding the residual $ %,.2f to the donation fund, thank you.", donation);
                     }
                 }
                 break;
@@ -114,37 +121,36 @@ public class Project2 {
                 accounts.addToDonationFund(payment);
                 int numberOf = 0;
                 switch (guildName) {
-                    // $60 murder
                     case "Assassins":
                         items = "murders";
-                        numberOf = (int) (payment / 60);
+                        numberOf = (int) (payment / ASSASSINS_PRICE);
                         break;
-                    // $12 garment
                     case "Seamstresses":
                         items = "garments";
-                        numberOf = (int) (payment / 12);
+                        numberOf = (int) (payment / SEAMSTRESSES_PRICE);
                         break;
-                    // $25 robbery
                     case "Thieves":
                         items = "robberies";
-                        numberOf = (int) (payment / 25);
+                        numberOf = (int) (payment / THIEVES_PRICE);
                         break;
                 }
 
-                toPrint = String.format("Guild of %s, thank you for your donation,%n  ", guildName);
-                toPrint += numberOf < 1 ? "however, it's not enough for an item of credit."
+                receiptToBePrinted = String.format("Guild of %s, thank you for your donation,%n  ", guildName);
+                receiptToBePrinted += numberOf < 1 ? "however, it's not enough for an item of credit."
                         : String.format("you have received credit of %d %s.", numberOf, items);
                 break;
             default:
-                toPrint = String.format("Guild of %s, we're sorry, we don't take that kind of payment,%n  " +
+                receiptToBePrinted = String.format("Guild of %s, we're sorry, we don't take that kind of payment,%n  " +
                         "so we lost it. Please make the payment again tomorrow, goodbye.", guildName);
                 accounts.addToDarkFund(payment);
         }
-        if (!toPrint.isEmpty()) printReceipt(toPrint);
+        if (!receiptToBePrinted.isEmpty()) printReceipt(receiptToBePrinted);
         return true;
     }
 
-    /** printTotals - prints total amounts in each accounts
+    /**
+     * printTotals - prints total amounts in each accounts
+     *
      * @param accounts Accounts
      */
     public static void printTotals(Accounts accounts) {
