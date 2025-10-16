@@ -13,9 +13,9 @@ public class Accounts {
      * Standard constructor for objects of class Guild
      */
     Accounts() {
-        taxFund = 0.0;
-        donationFund = 0.0;
-        darkFund = 0.0;
+        this.taxFund = 0.0;
+        this.donationFund = 0.0;
+        this.darkFund = 0.0;
     }
 
     /**
@@ -39,7 +39,7 @@ public class Accounts {
      * @return double taxFund
      */
     public double getTaxFund() {
-        return taxFund;
+        return this.taxFund;
     }
 
     /**
@@ -48,7 +48,7 @@ public class Accounts {
      * @return double donationFund
      */
     public double getDonationFund() {
-        return donationFund;
+        return this.donationFund;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Accounts {
      * @return double darkFund
      */
     public double getDarkFund() {
-        return darkFund;
+        return this.darkFund;
     }
 
     // it feels so illegal to use $ as a variable name ;-;
