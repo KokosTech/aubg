@@ -8,13 +8,11 @@ import java.util.Scanner;
  * @version 16/10/25
  */
 public class Project2 {
+    public static final int TAX = 100;
+    public static final int ASSASSINS_PRICE = 60;
+    public static final int SEAMSTRESSES_PRICE = 12;
+    public static final int THIEVES_PRICE = 25;
     private static final Scanner keyboard = new Scanner(System.in);
-
-        public static final int TAX = 100;
-        public static final int ASSASSINS_PRICE = 60;
-        public static final int SEAMSTRESSES_PRICE = 12;
-        public static final int THIEVES_PRICE = 25;
-
 
     /**
      * printReceipt - this method formats and prints the receipt for the given transaction
@@ -48,6 +46,13 @@ public class Project2 {
         }
     } //DO NOT ALTER THE MAIN METHOD
 
+    /**
+     * go - this is the main logic component of the program - where every payment is processed,
+     * and each input taken, checked, and processed
+     *
+     * @param accounts Accounts
+     * @return boolean - if the program should loop or stop
+     */
     public static boolean go(Accounts accounts) {
         /*== guild name ==*/
 
@@ -106,8 +111,8 @@ public class Project2 {
                     receiptToBePrinted = String.format("Guild of %s tax payment of $ %,.2f confirmed ", guildName, taxPayment);
                     receiptToBePrinted +=
                             "(" + ((months > 11) ? (months / 12) + " years" : "") // check if there are years in the months
-                            + ((months > 11 && months % 12 != 0) ? " " : "")  // check if year and month have to be present
-                            + ((months % 12 != 0) ? (months % 12) + " months" : "") + ")."; // check if there should bn run
+                                    + ((months > 11 && months % 12 != 0) ? " " : "")  // check if year and month have to be present
+                                    + ((months % 12 != 0) ? (months % 12) + " months" : "") + ")."; // check if there should bn run
 
 
                     if (donation > 0) {
@@ -118,8 +123,10 @@ public class Project2 {
                 break;
             case "DONATION":
                 String items = "";
-                accounts.addToDonationFund(payment);
                 int numberOf = 0;
+
+                accounts.addToDonationFund(payment);
+
                 switch (guildName) {
                     case "Assassins":
                         items = "murders";
