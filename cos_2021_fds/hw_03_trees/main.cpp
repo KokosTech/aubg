@@ -11,6 +11,7 @@ fixed them all (hopefully)
 
 #include <iostream>
 #include <random>
+#include <vector>
 
 #include "avl.hpp"
 #include "bst.hpp"
