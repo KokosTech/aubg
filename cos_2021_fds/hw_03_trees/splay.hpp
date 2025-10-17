@@ -17,31 +17,108 @@ private:
         NOTE: Your implementation should be recursive.
 
         Please refer to the _insert and _find methods to see where this
-        method is called. 
+        method is called.
     */
-    void left_rotation() {
+    void left_rotation(std::shared_ptr<Node<T>> cur) {
+        cur->parent->right = cur->left;
+        cur->left = cur->parent;
 
+        if (cur->parent->right) cur->parent->right->parent = cur->parent;
+        cur->parent = cur->left->parent;
+        cur->left->parent = cur;
     }
 
-    void right_rotation() {
+    void right_rotation(std::shared_ptr<Node<T>> cur) {
+        cur->parent->left = cur->right;
+        cur->right = cur->parent;
 
+        if (cur->parent->left) cur->parent->left->parent = cur->parent;
+        cur->parent = cur->right->parent;
+        cur->right->parent = cur;
     }
 
-    void zig_zig() {
-
-    }
-
-    void zig_zag() {
-
-    }
+    // void zig_zig() {
+    //
+    // }
+    //
+    // void zig_zag() {
+    //
+    // }
 
     void _splay(std::shared_ptr<Node<T>> cur) {
+        std::cout << "CUR: " << cur << " DATA: " << cur->data << std::endl;
         // PHASE 1: Implemet the splay method for the tree.
         //  Refer to the book for the two types of rotations.
         //  This is a challenging exercise. I suggest you first draw out
         //  the nodes to understand how splaying works.
 
-        if(cur->)
+        // it's currently root if no parent
+        if (!cur->parent) {
+            this->root = cur;
+            return;
+        };
+        // std::cout << "AAAAAA\n";
+
+        // only a single zig if no grandparent
+        if (!cur->parent->parent) {
+            if (cur == cur->parent->left) {
+                std::cout << "RIGHT ROTATION !!!!\n";
+                right_rotation(cur);
+            } else {
+                // std::cout << "LEFT ROTATION !!!!\n";
+                // std::cout << "CUR I: " << cur << std::endl;
+                // std::cout << "PTR I: " << cur->parent << std::endl;
+                // std::cout << "PTR I LC: " << cur->parent->left << std::endl;
+                // std::cout << "PTR I RC: " << cur->parent->right << std::endl;
+                // std::flush(std::cout);
+                left_rotation(cur);
+            }
+
+            this->root = cur;
+            return;
+        }
+
+        // zig zig
+        std::cout << "=====================\n";
+        std::cout << "PLS ZIG ZIG or ZIG ZAG\n";
+        std::flush(std::cout);
+        std::shared_ptr<Node<T>> grandparent = cur->parent->parent;
+
+        if (grandparent->parent) {
+            if (grandparent->parent->left == grandparent) {
+                grandparent->parent->left = cur;
+            } else {
+                grandparent->parent->right = cur;
+            }
+        }
+
+        if (grandparent->left && grandparent->left->left == cur) {
+            std::cout << "ZIG ZIG L" << std::endl;
+            std::flush(std::cout);
+            right_rotation(cur->parent);
+            right_rotation(cur);
+            return _splay(cur);
+        }
+
+        if (grandparent->right && grandparent->right->right == cur) {
+            std::cout << "ZIG ZIG R" << std::endl;
+
+            left_rotation(cur->parent);
+            left_rotation(cur);
+            return _splay(cur);
+        }
+
+        // zig zag
+
+        if (grandparent->left && grandparent->left->right == cur) {
+            left_rotation(cur);
+            right_rotation(cur);
+        } else {
+            right_rotation(cur);
+            left_rotation(cur);
+        }
+
+        return _splay(cur);
     }
 
     void _insert(std::shared_ptr<Node<T>> cur, std::shared_ptr<Node<T>> newnode) {
@@ -77,8 +154,8 @@ private:
         if(cur->right) _print(cur->right, indent+"*");
         std::cout << indent << cur->data << std::endl;
         if(cur->left) _print(cur->left, indent+"*");
-        
-    } 
+
+    }
 
 public:
     Splay()
