@@ -1,3 +1,14 @@
+/* ============================
+       Kaloyan Doychinov
+        / 200 275 606 /
+       COS 2021 A - FDS
+
+         Known bugs:
+- there were a lot in the
+beginning but I think I've
+fixed them all (hopefully)
+============================ */
+
 #include<utility>
 #include"node.hpp"
 
@@ -6,6 +17,7 @@ class Splay  {
 private:
     std::shared_ptr<Node<T>> root;
 
+    // sources - my pen and paper & the god-given usfca.edu
 
     /* The splay method: remember the splay method is responsible for
         "splaying" the current node to the root of the tree.
@@ -37,40 +49,25 @@ private:
         cur->right->parent = cur;
     }
 
-    // void zig_zig() {
-    //
-    // }
-    //
-    // void zig_zag() {
-    //
-    // }
-
     void _splay(std::shared_ptr<Node<T>> cur) {
-        std::cout << "CUR: " << cur << " DATA: " << cur->data << std::endl;
         // PHASE 1: Implemet the splay method for the tree.
         //  Refer to the book for the two types of rotations.
         //  This is a challenging exercise. I suggest you first draw out
         //  the nodes to understand how splaying works.
 
         // it's currently root if no parent
+
         if (!cur->parent) {
             this->root = cur;
             return;
         };
-        // std::cout << "AAAAAA\n";
 
         // only a single zig if no grandparent
+
         if (!cur->parent->parent) {
             if (cur == cur->parent->left) {
-                std::cout << "RIGHT ROTATION !!!!\n";
                 right_rotation(cur);
             } else {
-                // std::cout << "LEFT ROTATION !!!!\n";
-                // std::cout << "CUR I: " << cur << std::endl;
-                // std::cout << "PTR I: " << cur->parent << std::endl;
-                // std::cout << "PTR I LC: " << cur->parent->left << std::endl;
-                // std::cout << "PTR I RC: " << cur->parent->right << std::endl;
-                // std::flush(std::cout);
                 left_rotation(cur);
             }
 
@@ -78,10 +75,8 @@ private:
             return;
         }
 
-        // zig zig
-        std::cout << "=====================\n";
-        std::cout << "PLS ZIG ZIG or ZIG ZAG\n";
-        std::flush(std::cout);
+        // zig zig or zig zag
+
         std::shared_ptr<Node<T>> grandparent = cur->parent->parent;
 
         if (grandparent->parent) {
@@ -92,17 +87,15 @@ private:
             }
         }
 
+        // zig zig
+
         if (grandparent->left && grandparent->left->left == cur) {
-            std::cout << "ZIG ZIG L" << std::endl;
-            std::flush(std::cout);
             right_rotation(cur->parent);
             right_rotation(cur);
             return _splay(cur);
         }
 
         if (grandparent->right && grandparent->right->right == cur) {
-            std::cout << "ZIG ZIG R" << std::endl;
-
             left_rotation(cur->parent);
             left_rotation(cur);
             return _splay(cur);
