@@ -12,6 +12,7 @@ fixed them all (hopefully)
 #include <iostream>
 #include <random>
 #include <vector>
+#include <algorithm>
 
 #include "avl.hpp"
 #include "bst.hpp"
