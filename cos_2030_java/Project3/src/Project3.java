@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import static java.lang.System.exit;
 
+/**
+ * This class is used for the implementation of Project 3 HW for COS2030 Java
+ *
+ * @author Kaloyan Doychinov
+ * @version 04/11/25
+ */
 public class Project3 {
     private static final int SEAMSTRESSES_LIMIT = 180;
     private static final int THIEVES_LIMIT = 60;
@@ -12,6 +18,29 @@ public class Project3 {
     private static final int DAYS = 30;
     private static final int MAX_DAY = 10;
 
+    /**
+     * openFile - this helper method moves the program's logic for opening files
+     *
+     * @param filename String - path to file
+     * @return Scanner - open file stream
+     */
+    private static Scanner openFile(String filename) {
+        try {
+            File sff = new File(filename);
+            return new Scanner(sff);
+        } catch (FileNotFoundException e) {
+            System.out.println("The file " + filename + " does not exist. Exiting...");
+            exit(-1);
+            return null;
+        }
+    }
+
+    /**
+     * stringFancyNumber - this helper method is used for formatting the fancy st/nd/rd/th numbers
+     *
+     * @param num int - number to be converted to fancy text
+     * @return String - returns a fancy number as a text
+     */
     private static String stringFancyNumber(int num) {
         String num_str = "" + num;
 
@@ -28,6 +57,15 @@ public class Project3 {
         return num_str + ":";
     }
 
+    /**
+     * _printApproved - this helper method conveys the actual logic and formatting behind printing a guild's approved credit if necessary
+     *
+     * @param guild      Guild - guild's credit info
+     * @param crApproved int - amount of approved credit for the day
+     * @param iter       int - day of the iteration
+     * @param printIter  boolean - flag for printing the day (only for the first one)
+     * @return nothing
+     */
     private static void _printApproved(Guild guild, int crApproved, int iter, boolean printIter) {
         int totalApproved = guild.getApproved();
         boolean multiple = crApproved > 1;
@@ -57,23 +95,35 @@ public class Project3 {
         if (maxed) {
             System.out.printf("(maxed out at %d total approved)%n", totalApproved);
         } else {
-            System.out.printf("(%-3d total approved, %-2d not yet approved)%n", guild.getApproved(), guild.getCarry());
+            System.out.printf("(%-3d total approved, %-2d not yet approved)%n", totalApproved, guild.getCarry());
         }
     }
 
-    private static void printApproved(Guild seamstresses, Guild thieves, Guild assassins, int scr_approved, int tcr_approved, int acr_approved, int iter) {
+    /**
+     * printApproved - this helper wrapper method is used to call _printApproved for each guild
+     *
+     * @param seamstresses Guild - seamstresses' credit info
+     * @param thieves      Guild - thieves' credit info
+     * @param assassins    Guild - assassins' credit info
+     * @param scrApproved  int - amount of approved credit for the day for seamstresses
+     * @param tcrApproved  int - amount of approved credit for the day for thieves
+     * @param acrApproved  int - amount of approved credit for the day for assassins
+     * @param iter         int - day of the iteration
+     * @return nothing
+     */
+    private static void printApproved(Guild seamstresses, Guild thieves, Guild assassins, int scrApproved, int tcrApproved, int acrApproved, int iter) {
         boolean printed = false;
 
-        if (scr_approved > 0) {
-            _printApproved(seamstresses, scr_approved, iter, !printed);
+        if (scrApproved > 0) {
+            _printApproved(seamstresses, scrApproved, iter, !printed);
             printed = true;
         }
-        if (tcr_approved > 0) {
-            _printApproved(thieves, tcr_approved, iter, !printed);
+        if (tcrApproved > 0) {
+            _printApproved(thieves, tcrApproved, iter, !printed);
             printed = true;
         }
-        if (acr_approved > 0) {
-            _printApproved(assassins, acr_approved, iter, !printed);
+        if (acrApproved > 0) {
+            _printApproved(assassins, acrApproved, iter, !printed);
         }
     }
 
@@ -85,46 +135,43 @@ public class Project3 {
 
         //COMMENT IN AND OUT ONE CALL TO distributeCredits AT A TIME
         //read files and distribute credits
-        //distributeCredits(seamstresses, thieves, assassins, "seamstresses.txt", "thieves.txt", "assassins.txt");
-        distributeCredits(seamstresses, thieves, assassins, "seamstresses2.txt", "thieves2.txt", "assassins2.txt");
+        distributeCredits(seamstresses, thieves, assassins, "seamstresses.txt", "thieves.txt", "assassins.txt");
+//        distributeCredits(seamstresses, thieves, assassins, "seamstresses2.txt", "thieves2.txt", "assassins2.txt");
 
         //print report when all mail coaches have been dispatched
         printTotal(seamstresses, assassins, thieves);
     } //DO NOT ALTER THE MAIN METHOD
 
-
-    public static Scanner openFile(String filename) {
-        try {
-            File sff = new File(filename);
-            return new Scanner(sff);
-        } catch (FileNotFoundException e) {
-            System.out.println("The file " + filename + " does not exist. Exiting...");
-            exit(-1);
-            return null;
-        }
-    }
-
+    /**
+     * distributeCredits - the actual logic behind this homework, the algorithm for distributing and printing the credits
+     *
+     * @param seamstresses Guild - seamstresses' credit info
+     * @param thieves      Guild - thieves' credit info
+     * @param assassins    Guild - assassins' credit info
+     * @param sFN          String - filename for the seamstresses credit requests
+     * @param tFN          String - filename for the thieves credit requests
+     * @param aFN          String - filename for the assassins credit requests
+     * @return nothing
+     */
     public static void distributeCredits(Guild seamstresses, Guild thieves, Guild assassins, String sFN, String tFN, String aFN) {
         Scanner sf = openFile(sFN);
         Scanner tf = openFile(tFN);
         Scanner af = openFile(aFN);
 
-        for (int i = 1; i <= DAYS && (sf.hasNext() && tf.hasNext() && af.hasNext()); ++i) {
+        for (int i = 1; i <= DAYS && (sf.hasNext() && tf.hasNext() && af.hasNext()) && (sf.hasNextInt() && tf.hasNextInt() && af.hasNextInt()); ++i) {
             if (Guild.getAllCredits() >= 270) {
                 System.out.printf("%-8sNo credits.%n", stringFancyNumber(i));
                 continue;
             }
 
-//            TODO: do checks with hasNextInt !!!!
             int accDayCredits = 0;
-            int scr = sf.nextInt() + seamstresses.getCarry();
-            int tcr = tf.nextInt() + thieves.getCarry();
-            int acr = af.nextInt() + assassins.getCarry();
+            int scr = Math.max(sf.nextInt(), 0)  + seamstresses.getCarry();
+            int tcr = Math.max(tf.nextInt(), 0) + thieves.getCarry();
+            int acr = Math.max(af.nextInt(), 0) + assassins.getCarry();
 
             int scr_approved = 0;
             int tcr_approved = 0;
             int acr_approved = 0;
-
 
             seamstresses.addCarry(-seamstresses.getCarry());
             thieves.addCarry(-thieves.getCarry());
@@ -164,13 +211,16 @@ public class Project3 {
                 if (!cr) break;
             }
 
-            // there should be a more elegant solution than whatever the fuck this is
-            seamstresses.addCarry(Math.max(scr, 0));
-            thieves.addCarry(Math.max(tcr, 0));
-            assassins.addCarry(Math.max(acr, 0));
+            seamstresses.addCarry(scr);
+            thieves.addCarry(tcr);
+            assassins.addCarry(acr);
 
             printApproved(seamstresses, thieves, assassins, scr_approved, tcr_approved, acr_approved, i);
         }
+
+        sf.close();
+        tf.close();
+        af.close();
     }
 
     //DO NOT ALTER THE printTotal METHOD
