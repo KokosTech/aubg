@@ -18,6 +18,8 @@ fixed them all (hopefully)
 #include "bst.hpp"
 #include "splay.hpp"
 
+#define TEST_RUNS 100000.00
+
 int main() {
     AvlTree<int> avl_tree;
     BST<int> bst_tree;
@@ -41,7 +43,7 @@ int main() {
     unsigned long long bst_sum_depth = 0;
     unsigned long long splay_sum_depth = 0;
 
-    for (int i = 0; i < 100000; ++i) {
+    for (int i = 0; i < (int) TEST_RUNS; ++i) {
         int rnd_num_to_find = static_cast<int>(dist6(rng));
 
         avl_sum_depth += avl_tree.find(rnd_num_to_find);
@@ -55,9 +57,9 @@ int main() {
     std::cout.imbue(std::locale());
 
     std::cout << "========== TEST 1 ==========" << std::endl;
-    std::cout << "AVL SUM DEPTH -> " << avl_sum_depth << std::endl;
-    std::cout << "BST SUM DEPTH -> " << bst_sum_depth << std::endl;
-    std::cout << "SPLAY SUM DEPTH -> " << splay_sum_depth << std::endl;
+    std::cout << "AVL AVG DEPTH -> " << avl_sum_depth / TEST_RUNS << std::endl;
+    std::cout << "BST AVG DEPTH -> " << bst_sum_depth / TEST_RUNS << std::endl;
+    std::cout << "SPLAY AVG DEPTH -> " << splay_sum_depth / TEST_RUNS << std::endl;
     std::cout << "============================" << std::endl;
 
     // test 2
@@ -84,7 +86,7 @@ int main() {
     bst_sum_depth = 0;
     splay_sum_depth = 0;
 
-    for (int i = 0; i < 100000; ++i) {
+    for (int i = 0; i < (int) TEST_RUNS; ++i) {
         int rnd_num_to_find = static_cast<int>(dist6(rng));
 
         avl_sum_depth += new_avl_tree.find(rnd_num_to_find);
@@ -97,9 +99,9 @@ int main() {
     // splay - is the worst one here - but it's still close to AVL (by 20% slower)
     //      - reason - it's optimized for frequent access, and not access to all nodes
     std::cout << "========== TEST 2 ==========" << std::endl;
-    std::cout << "AVL SUM DEPTH -> " << avl_sum_depth << std::endl;
-    std::cout << "BST SUM DEPTH -> " << bst_sum_depth << std::endl;
-    std::cout << "SPLAY SUM DEPTH -> " << splay_sum_depth << std::endl;
+    std::cout << "AVL AVG DEPTH -> " << avl_sum_depth / TEST_RUNS << std::endl;
+    std::cout << "BST AVG DEPTH -> " << bst_sum_depth / TEST_RUNS << std::endl;
+    std::cout << "SPLAY AVG DEPTH -> " << splay_sum_depth / TEST_RUNS << std::endl;
     std::cout << "============================" << std::endl;
 
     return 0;

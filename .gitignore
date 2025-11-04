@@ -1,1 +1,7 @@
 .vscode
+.idea
+out
+build
+*.out
+cmake-build-debug
+output
