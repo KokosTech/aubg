@@ -1,5 +1,3 @@
-package src;
-
 public class Guild {
     private static int allCredits = 0;
     private String name;
