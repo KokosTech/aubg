@@ -106,6 +106,30 @@ public:
         heapifyUp(index);
     }
 
+    // !!!
+    std::vector<T> DeleteMinMulti(int value) {
+        std::vector<T> deletedValues;
+
+        while (!heap.empty() && heap.front() <= value) {
+            deletedValues.push_back(DeleteMin());
+        }
+
+        return deletedValues;
+    }
+
+
+    // !!!
+    int _CountLessThan(int value, int idx) {
+        if(idx > heap.size() - 1) return 0;
+        if(heap[idx] > value) return 0;
+        return _CountLessThan(value, idx*2+1) + _CountLessThan(value, idx*2+2) + 1;
+    }
+
+    // !!!
+    int CountLessThan(int value) {
+        return _CountLessThan(value, 0);
+    }
+
     void print() {
         for (T val: heap)
             cout << val << " ";
