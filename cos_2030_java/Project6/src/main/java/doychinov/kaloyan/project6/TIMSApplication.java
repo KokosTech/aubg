@@ -15,7 +15,12 @@ import java.util.ArrayList;
 
 import static java.lang.System.exit;
 
-
+/**
+ * This class is used for the implementation of Project 6 HW for COS2030 Java
+ *
+ * @author Kaloyan Doychinov
+ * @version 09/12/25
+ */
 public class TIMSApplication extends Application {
     private Stage stage;
     private BorderPane bp;
@@ -28,13 +33,21 @@ public class TIMSApplication extends Application {
     private int h = 0;
     private int w = 0;
 
+    /**
+     * static main method - entry to the program - launches jfx
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
 
+    /**
+     * initButtons - helper function that generates a collection of the buttons for the TIMS
+     */
     private void initButtons() {
         Button flipButton = new Button("Diagonal Flip");
-        flipButton.setOnAction(e -> flip(originalImageArray));
+        flipButton.setOnAction(e -> flip());
         this.buttons.add(flipButton);
 
         Button grayscaleButton = new Button("Grayscale");
@@ -58,6 +71,9 @@ public class TIMSApplication extends Application {
         this.buttons.add(closeButton);
     }
 
+    /**
+     * overlay - displays an overlay on top of the original image
+     */
     private void overlay() {
         Image overlay = new Image(getClass().getResource("overlay.png").toExternalForm());
         PixelReader pixelReader = overlay.getPixelReader();
@@ -77,6 +93,9 @@ public class TIMSApplication extends Application {
         handleImageChange(newImageArray);
     }
 
+    /**
+     * grayscale - displays a grayscale version of the original image
+     */
     private void grayscale() {
         Color[][] newImageArray = new Color[this.w][this.h];
 
@@ -91,6 +110,9 @@ public class TIMSApplication extends Application {
         handleImageChange(newImageArray);
     }
 
+    /**
+     * mosaic - displays a mosaic of the original image
+     */
     private void mosaic() {
         int[][] newImageArray = new int[this.w][this.h];
 
@@ -103,22 +125,31 @@ public class TIMSApplication extends Application {
         handleImageChange(newImageArray);
     }
 
-    public void flip(int[][] imageArray) {
+    /**
+     * flip - displays a diag. flipped version of the original image
+     */
+    public void flip() {
         int[][] newImageArray = new int[this.w][this.h];
         for (int i = 0; i < this.w; ++i) {
             for (int j = 0; j < this.h; ++j) {
-                newImageArray[i][j] = imageArray[this.w - 1 - i][this.h - 1 - j];
+                newImageArray[i][j] = this.originalImageArray[this.w - 1 - i][this.h - 1 - j];
             }
         }
 
         handleImageChange(newImageArray);
     }
 
+    /**
+     * showOriginal - displays the original image
+     */
     private void showOriginal() {
         handleImageChange(originalImageArray);
     }
 
 
+    /**
+     * closeProgram - exits the program gracefully with exit(0)
+     */
     private void closeProgram() {
         exit(0);
     }
@@ -147,7 +178,7 @@ public class TIMSApplication extends Application {
 
 
     /**
-     * writePartialImage - helper method to write partial images on the canvas
+     * writePartialImage - helper method to write image on the canvas (overloaded for int)
      *
      * @param pixelWriter PixelWriter - object used to write on the canvas
      * @param imgArr      int[][] - pixel array of the image
@@ -160,6 +191,12 @@ public class TIMSApplication extends Application {
         }
     }
 
+    /**
+     * writePartialImage - helper method to write image on the canvas (overloaded for Color)
+     *
+     * @param pixelWriter PixelWriter - object used to write on the canvas
+     * @param imgArr      Color[][] - Color array of the image
+     */
     private void writeImage(PixelWriter pixelWriter, Color[][] imgArr) {
         for (int i = 0; i < imgArr.length; ++i) {
             for (int j = 0; j < imgArr[i].length; ++j) {
@@ -168,6 +205,11 @@ public class TIMSApplication extends Application {
         }
     }
 
+    /**
+     * handleImageDisplay - helper function to display an image (used in handleImageChange)
+     *
+     * @param image
+     */
     private void handleImageDisplay(ImageView image) {
         this.bp.getChildren().clear(); //clear the border pane
         this.fp.getChildren().clear();
@@ -187,6 +229,11 @@ public class TIMSApplication extends Application {
         this.bp.setCenter(this.fp);
     }
 
+    /**
+     * handleImageChange - helper function that displays a new image on the scene (overloaded for int)
+     *
+     * @param newImageArray
+     */
     private void handleImageChange(int[][] newImageArray) {
         WritableImage writableImage = new WritableImage(newImageArray.length, newImageArray[0].length);
         PixelWriter pixelWriter = writableImage.getPixelWriter();
@@ -194,6 +241,11 @@ public class TIMSApplication extends Application {
         handleImageDisplay(new ImageView(writableImage));
     }
 
+    /**
+     * handleImageChange - helper function that displays a new image on the scene (overloaded for Color)
+     *
+     * @param newImageArray
+     */
     private void handleImageChange(Color[][] newImageArray) {
         WritableImage writableImage = new WritableImage(newImageArray.length, newImageArray[0].length);
         PixelWriter pixelWriter = writableImage.getPixelWriter();
@@ -201,6 +253,12 @@ public class TIMSApplication extends Application {
         handleImageDisplay(new ImageView(writableImage));
     }
 
+    /**
+     * start - overriden function from jfx - where the program basically starts displaying its logic
+     *
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
@@ -210,6 +268,7 @@ public class TIMSApplication extends Application {
 
         initButtons();
 
+        // read original image
         Image image = new Image(getClass().getResource("Subway.png").toExternalForm());
         PixelReader pixelReader = image.getPixelReader();
 
@@ -244,6 +303,5 @@ public class TIMSApplication extends Application {
         stage.setScene(scene);
         stage.setTitle("TIMS - The Image Manipulation Software");
         stage.show();
-
     }
 }
