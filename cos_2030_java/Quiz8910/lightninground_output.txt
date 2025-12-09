@@ -1,0 +1,152 @@
+
+P1: reverse:
+	original string: balloon
+	reversed string: noollab
+	original string: velociraptor
+	reversed string: rotparicolev
+
+P2: swap:
+	a = 25, b = 35
+	a = 35, b = 25
+
+P3: all substrings:
+	 all subs of hello: h he hel hell hello e el ell ello l ll llo l lo o 
+	 all subs of velociraptor: v ve vel velo veloc veloci velocir velocira velocirap velocirapt velocirapto velociraptor e el elo eloc eloci elocir elocira elocirap elocirapt elocirapto elociraptor l lo loc loci locir locira locirap locirapt locirapto lociraptor o oc oci ocir ocira ocirap ocirapt ocirapto ociraptor c ci cir cira cirap cirapt cirapto ciraptor i ir ira irap irapt irapto iraptor r ra rap rapt rapto raptor a ap apt apto aptor p pt pto ptor t to tor o or r 
+	 all subs of gargantuan: g ga gar garg garga gargan gargant gargantu gargantua gargantuan a ar arg arga argan argant argantu argantua argantuan r rg rga rgan rgant rgantu rgantua rgantuan g ga gan gant gantu gantua gantuan a an ant antu antua antuan n nt ntu ntua ntuan t tu tua tuan u ua uan a an n 
+
+P4: vowels:
+	vowels present in sequoia: true
+	vowels present in hymn: false
+
+P5: zeros and ones:
+	[0, 1, 1, 1, 0, 0, 1, 0, 1] -> [0, 0, 0, 0, 1, 1, 1, 1, 1]
+	[0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1] -> [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+P6: odds:
+	even number present in [16, 4, 53, 12, 50923, 23, -394, 213]
+	only odds number in [35, 71, 99, 5821, -43]
+
+P7: missing:
+	missing number from [7, 5, 6, 1, 4, 2]: 3
+	missing number from [5, 3, 1, 2]: 4
+	missing number from [5, 12, 3, 1, 2, 4, 8, 6, 7, 9, 10, 14, 11]: 13
+
+P8: palindrome:
+	oozy rat in a sanitary zoo is a palindrome
+	ufos tofu is not a palindrome
+
+P9: factorial:
+	factorial of 6 is 720
+	factorial of 12 is 479001600
+
+P10: reverse ll:
+	original list [12, 31, 482, -4, 34]
+	reversed list [34, -4, 482, 31, 12]
+
+P11: same elements:
+	[3, 5, 1, 3, 7, 0, 9] and [3, 5, 1, 7] don't have the same elements
+	[3, 5, 1, 3, 7, 0, 9] and [9, 9, 0, 3, 5, 1, 7] have the same elements
+
+P12: first and last
+	in [2, 3, 4, 5, 2, 3, 5, 2, 1, 2, 2, 4, 4, 3, 5, 5, 6, 7, 3, 4, 6, 7, 2, 3, 3, 5, 7, 8, 3, 0, 1, 2, 4, 2, 0, 0]
+	first index of 5: 3, last index of 5: 25
+	first index of 2: 0, last index of 2: 33
+	first index of 0: 29, last index of 0: 35
+	first index of 7: 17, last index of 7: 26
+	9 not found
+	first index of 8: 27, last index of 8: 27
+
+P13: closest to zero:
+	in [1, 3, -5, 7, 8, 20, -40, 6] pair of elements with sum closes to to zero: -5 and 6
+	in [10, 13, 35, 7, 28, 20, 40, -23, 16] pair of elements with sum closes to to zero: 20 and -23
+
+P14: second largest:
+	213 is the second largest number in [16, 4, 53, 12, 50923, 23, -394, 213]
+	99 is the second largest number in [35, 71, 99, 5821, -43]
+
+P15: matrix rows and columns:
+	[3, 4, 6]
+	[9, 3, 1]
+	[9, 2, 4]
+	row 0 : 3 4 6 
+	row 1 : 9 3 1 
+	row 2 : 9 2 4 
+	col 0 : 3 9 9 
+	col 1 : 4 3 2 
+	col 2 : 6 1 4 
+	[3, 1, 4, 6]
+	[0, 6, 3, 8]
+	[1, 6, 2, 3]
+	[9, 2, 4, 7]
+	row 0 : 3 1 4 6 
+	row 1 : 0 6 3 8 
+	row 2 : 1 6 2 3 
+	row 3 : 9 2 4 7 
+	col 0 : 3 0 1 9 
+	col 1 : 1 6 6 2 
+	col 2 : 4 3 2 4 
+	col 3 : 6 8 3 7 
+
+P16: matrix wave:
+	[1, 6, 7]
+	[2, 5, 8]
+	[3, 4, 9]
+	1 2 3 4 5 6 7 8 9 
+	[1, 6, 5, 8, 7]
+	[2, 0, 1, 5, 8]
+	[1, 3, 6, 4, 9]
+	1 2 1 3 0 6 5 1 6 4 5 8 7 8 9 
+
+P17: frequency of digits:
+	5 shows up 3 times in -4255235
+	0 shows up 1 times in 0
+	4 shows up 0 times in 9318051
+	1 shows up 4 times in 901211718
+
+P18: toggle:
+	"APpLe" toggled is "apPlE"
+	"7 elePHAntS, 18 LEGS" toggled is "7 ELEphaNTs, 18 legs"
+
+P19: count chars:
+	she seemed to be looking at something other than what she looked as if she was looking at
+	contains { =17, a=6, b=1, d=2, e=10, f=1, g=3, h=7, i=4, k=3, l=3, m=2, n=4, o=9, r=1, s=7, t=7, w=2}
+	foqifh-sdxjfh.lihfsdanldiha
+	contains {a=2, d=3, f=4, h=4, i=3, j=1, l=2, -=1, .=1, n=1, o=1, q=1, s=2, x=1}
+
+P20: max-sum contiguous subarray:
+	in [1, 8, -3, -7, 2, 7, -1, -9] -> 9
+	in [16, 3, 2, -1, -4, 12, 3, 0] -> 31
+
+P21: pyramid:
+* * * * * * * * * * * * 
+ * * * * * * * * * * * 
+  * * * * * * * * * * 
+   * * * * * * * * * 
+    * * * * * * * * 
+     * * * * * * * 
+      * * * * * * 
+       * * * * * 
+        * * * * 
+         * * * 
+          * * 
+           * 
+* * * 
+ * * 
+  * 
+* * * * * * * 
+ * * * * * * 
+  * * * * * 
+   * * * * 
+    * * * 
+     * * 
+      * 
+* * * * * 
+ * * * * 
+  * * * 
+   * * 
+    * 
+
+P22: armstrong number: 
+	371 is an armstrong number
+	1741725 is an armstrong number
+	154 is not an armstrong number

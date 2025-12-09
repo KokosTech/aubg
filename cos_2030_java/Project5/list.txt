@@ -1,0 +1,54 @@
+Commander of the City Watch
+Samuel Vimes
+Ankh-Morpork
+Witch
+Esmeralda Weatherwax
+Lancre
+yes
+11
+-3
+Witch 
+Magrat Garlick
+Lancre
+no
+7
+0
+Secretary
+Rufus Drumknott
+Ankh-Morpork
+Wizard 
+Mustrum Ridcully
+Ankh-Morpork
+Archchancellor of Unseen University
+7
+Witch 
+Gytha Ogg
+Lancre
+yes
+10
+2
+Founder of the League of Temperance
+Lady Margolotta
+Ueberwald
+Witch 
+Tiffany Aching
+The Chalk
+yes
+10
+0
+The Grim Reaper
+DEATH
+Everywhere
+Wizard
+Ponder Stibbons
+Ankh-Morpork
+Head of Inadvisably Applied Magic at Unseen University
+7
+Wizard 
+Bill Rincewind
+Bugerup
+Archchancellor of Bugerup University
+6
+Scoundrel
+Moist von Lipwig
+Ankh-Morpork
