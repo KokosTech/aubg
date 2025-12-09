@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static java.lang.System.arraycopy;
 import static java.lang.System.exit;
 
 class TIMS {
@@ -139,30 +138,11 @@ class TIMS {
 
         int[][] newImageArray = new int[h][w];
 
-        for (int i = 0; i < h / 2; ++i) {
-            for (int j = 0; j < w / 2; ++j) {
-                newImageArray[h / 2 + i][w / 2 + j] = originalImageArray[i][j];
-            }
-        }
-
-        for (int i = 0; i < h / 2; ++i) {
-            for (int j = w / 2; j < w; ++j) {
+        for (int i = 0; i < h; ++i) {
+            for (int j = 0; j < w; ++j) {
                 newImageArray[(h / 2 + i) % h][(w / 2 + j) % w] = originalImageArray[i][j];
             }
         }
-
-        for (int i = h / 2; i < h; ++i) {
-            for (int j = 0; j < w / 2; ++j) {
-                newImageArray[(h / 2 + i) % h][(w / 2 + j) % w] = originalImageArray[i][j];
-            }
-        }
-
-        for (int i = h / 2; i < h; ++i) {
-            for (int j = w / 2; j < w; ++j) {
-                newImageArray[(h / 2 + i) % h][(w / 2 + j) % w] = originalImageArray[i][j];
-            }
-        }
-
 
         WritableImage writableImage = new WritableImage(originalImageArray.length, originalImageArray[0].length);
         PixelWriter pixelWriter = writableImage.getPixelWriter();
@@ -187,7 +167,6 @@ class TIMS {
      * return: int[][] - the array with the RGB data
      */
     private int[][] readImage(Image image, PixelReader pixelReader) {
-
         int h = (int) image.getHeight();
         int w = (int) image.getWidth();
 
