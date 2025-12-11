@@ -15,6 +15,8 @@
   https://stackoverflow.com/questions/22088607/what-is-the-difference-between-set-vs-map-in-c
   https://stackoverflow.com/questions/2196995/is-there-any-advantage-of-using-map-over-unordered-map-in-case-of-trivial-keys
 
+- Checking results by hand - check /hand_solution_check directory
+
          Known bugs:
  !!!! C++20 IS REQUIRED !!!!
 - just run: g++ main.cpp -std=c++20 -Wall -Wextra -Werror -Wpedantic
