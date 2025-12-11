@@ -30,7 +30,7 @@
 #include "graph.hpp"
 
 std::ifstream open_file() {
-    std::ifstream inputFile;
+    std::ifstream input_file;
 
     while (true) {
         std::string filename;
@@ -38,9 +38,9 @@ std::ifstream open_file() {
         std::cin >> filename;
 
         if (!filename.empty()) {
-            inputFile.open(filename, std::ios::in);
+            input_file.open(filename, std::ios::in);
             try {
-                if (!inputFile.is_open())
+                if (!input_file.is_open())
                     throw std::invalid_argument("File not found!");
                 break;
             } catch (const std::invalid_argument &e) {
@@ -50,32 +50,33 @@ std::ifstream open_file() {
         std::cout << std::endl;
     }
 
-    return inputFile;
+    return input_file;
 }
 
-// CHANGE !!!!!
 template<typename T>
-void read_graph_and_close(Graph<T> &graph, std::ifstream &inputFile) {
-    std::string line;
-    while (std::getline(inputFile, line)) {
-        size_t colonPos = line.find(':');
-        if (colonPos == std::string::npos) continue; // invalid line
-        char nodeValue = line.at(0);
-        std::string edgesPart = line.substr(2);
+void read_graph_and_close(Graph<T> &graph, std::ifstream &input_file) {
+    if (!input_file.is_open()) return;
 
-        std::istringstream edgesStream(edgesPart);
+    // U: V V V V....
+
+    std::string line;
+    while (std::getline(input_file, line)) {
+        char node_value = line.at(0);
+
+        std::string edgesPart = line.substr(2);
+        std::stringstream edgesStream(edgesPart);
         std::string edgeValue;
         while (edgesStream >> edgeValue) {
-            graph.add_edge(nodeValue, edgeValue.at(0));
+            graph.add_edge(node_value, edgeValue.at(0));
         }
     }
-    inputFile.close();
+    input_file.close();
 }
 
 int main() {
     Graph<char> graph;
-    std::ifstream inputFile = open_file();
-    read_graph_and_close(graph, inputFile);
+    std::ifstream input_file = open_file();
+    read_graph_and_close(graph, input_file);
     graph.graph_closeness();
     return 0;
 }
