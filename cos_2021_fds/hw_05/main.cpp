@@ -6,8 +6,19 @@
         / 200 263 539 /
        COS 2021 A - FDS
 
+        General Notes:
+- Firstly we taught we should do it like a real graph - aka nodes pointing to other nodes,
+  but for the solution of this project (and the algorithm provided in the lecture+wiki),
+  it's much simpler using an adjacency list
+
+- Choosing the built-in C++ container type - these were pretty useful
+  https://stackoverflow.com/questions/22088607/what-is-the-difference-between-set-vs-map-in-c
+  https://stackoverflow.com/questions/2196995/is-there-any-advantage-of-using-map-over-unordered-map-in-case-of-trivial-keys
+
          Known bugs:
-!!!! C++20 IS REQUIRED !!!!
+ !!!! C++20 IS REQUIRED !!!!
+- doesn't properly work with non-connected graphs
+  (centrality goes beyond 1 - dunno if that's correct)
 ============================ */
 
 #include <iostream>
