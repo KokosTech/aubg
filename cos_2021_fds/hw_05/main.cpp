@@ -17,6 +17,7 @@
 
          Known bugs:
  !!!! C++20 IS REQUIRED !!!!
+- just run: g++ main.cpp -std=c++20 -Wall -Wextra -Werror -Wpedantic
 - doesn't properly work with non-connected graphs
   (centrality goes beyond 1 - dunno if that's correct)
 ============================ */

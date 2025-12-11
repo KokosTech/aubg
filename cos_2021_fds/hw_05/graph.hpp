@@ -1,6 +1,11 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <map>
+#include <queue>
+#include <algorithm>
+// #include <unordered_map>
 
 template<typename T>
 class Graph {
@@ -59,27 +64,28 @@ public:
             closeness_map[node] = static_cast<double>(n - 1) / closeness;
         }
 
-        std::unordered_map<T, double> sorted_closeness = sort_map(closeness_map);
+        std::vector<std::pair<T, double> > sorted_closeness = sort_map(closeness_map);
 
         for (auto [node, closeness]: sorted_closeness) {
-            std::cout << "Node " << node << " has closeness " << closeness << std::endl;
+            std::cout << "Node " << node << " has closeness centrality of " << closeness << std::endl;
         }
     }
 
-    // inspired by https://stackoverflow.com/a/19528891 but in a different implementation
-    // unordered_map since we want it sorted by the value, not the key (could use a list, but it compromises on the key constraint)
-    std::unordered_map<T, double> sort_map(std::map<T, double> &m) {
-        std::unordered_map<T, double> sorted_map;
+    // inspired by https://stackoverflow.com/a/19528891
+    // first implementation used unordered_map, but the sorting was broken - no idea why
+    std::vector<std::pair<T, double> > sort_map(std::map<T, double> &m) {
+        // std::unordered_map<T, double> sorted_map;
         std::vector<std::pair<T, double> > vec(m.begin(), m.end());
 
         std::sort(vec.begin(), vec.end(), [](const auto &a, const auto &b) {
-            return a.second < b.second;
+            return a.second > b.second;
         });
 
-        for (const auto &pair: vec) {
-            sorted_map.insert(pair);
-        }
+        // for (const auto &pair: vec) {
+        //     sorted_map.insert(pair);
+        // }
+        // return sorted_map;
 
-        return sorted_map;
+        return vec;
     }
 };
