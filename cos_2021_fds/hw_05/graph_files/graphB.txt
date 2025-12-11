@@ -1,0 +1,21 @@
+A: B H
+B: C I N
+C: D F
+D: A E G
+E: A K M
+F: B C P
+G: F
+H: I K
+I: J
+J: B
+K: G L
+L: E
+M: G
+N: J O
+O: F
+P: Q R
+Q: P S U
+R: O S T
+S: P
+T: S
+U: T
