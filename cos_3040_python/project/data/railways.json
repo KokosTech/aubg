@@ -1,0 +1,21 @@
+{
+  "stations": [
+    "Sofia Central",
+    "Plovdiv Central",
+    "Varna Central"
+  ],
+  "tracks": [
+    {
+      "from": "Sofia Central",
+      "to": "Plovdiv Central",
+      "distance_km": 150.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Plovdiv Central",
+      "to": "Varna Central",
+      "distance_km": 250.0,
+      "max_speed_kmh": 100
+    }
+  ]
+}

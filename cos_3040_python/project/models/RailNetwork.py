@@ -1,3 +1,4 @@
+import json
 from dataclasses import dataclass
 
 from models.TrainStation import TrainStation
@@ -71,6 +72,51 @@ class RailNetwork:
             if track.from_station_id == from_station and track.to_station_id == to_station:
                 return track
         raise ValueError(f"Track from '{from_station}' to '{to_station}' not found")
+
+    def display_network(self):
+        print("=== Rail Network ===")
+        print("Stations:")
+        for station in self._stations.values():
+            print(f"  - {station}")
+        print("Tracks:")
+        for track in self._tracks:
+            print(
+                f"  - {track.from_station_id} → {track.to_station_id} | "
+                f"{track.distance_km} km @ max {track.max_speed_kmh} km/h"
+            )
+            
+    def save_to_json(self, filename: str):
+        data = {
+            "stations": [s.name for s in self._stations.values()],
+            "tracks": [
+                {
+                    "from": t.from_station_id,
+                    "to": t.to_station_id,
+                    "distance_km": t.distance_km,
+                    "max_speed_kmh": t.max_speed_kmh
+                }
+                for t in self._tracks
+            ]
+        }
+        with open(filename, 'w') as f:
+            json.dump(data, f, indent=2)
+            
+    def load_from_json(self, filename: str):
+        self._stations.clear()
+        self._tracks.clear()
+        
+        with open(filename, 'r') as f:
+            data = json.load(f)
+        self._stations = {name: TrainStation(name) for name in data["stations"]}
+        self._tracks = [
+            Track(
+                from_station_id=t["from"],
+                to_station_id=t["to"],
+                distance_km=t["distance_km"],
+                max_speed_kmh=t["max_speed_kmh"]
+            )
+            for t in data["tracks"]
+        ]
 
     def __str__(self):
         return f"RailNetwork({len(self._stations)} stations, {len(self._tracks)} tracks)"
