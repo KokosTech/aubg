@@ -11,5 +11,6 @@ except FileNotFoundError:
 
 RAILWAYS_FILE = config["paths"]["railways_file"]
 TRAINS_FILE = config["paths"]["trains_file"]
+MIN_TRANSFER_TIME = config.getint("train", "min_transfer_time")
 
 DEFAULT_CARRIAGE_CAPACITY = config.getint("train", "default_carriage_capacity")
