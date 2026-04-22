@@ -1,0 +1,23 @@
+def validate_train_schedule(train, rail_network):
+    """Check that a train's stop times are physically possible given track constraints."""
+    stops = train.stops
+    for i in range(len(stops) - 1):
+        from_id = stops[i].station.name
+        to_id = stops[i + 1].station.name
+
+        # you'd add this to RailNetwork
+        track = rail_network.get_track(from_id, to_id)
+
+        # Convert times to minutes for calculation
+        arrival_time = stops[i + 1].arrival_time
+        departure_time = stops[i].departure_time
+        
+        if arrival_time and departure_time:
+            scheduled_minutes = (arrival_time[0] * 60 + arrival_time[1]) - (departure_time[0] * 60 + departure_time[1])
+            min_minutes = (track.distance_km / track.max_speed_kmh) * 60
+            
+            if scheduled_minutes < min_minutes:
+                raise ValueError(
+                    f"Schedule impossible between {from_id} and {to_id}: "
+                    f"scheduled {scheduled_minutes:.0f} minutes, minimum possible {min_minutes:.0f} minutes"
+                )

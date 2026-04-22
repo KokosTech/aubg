@@ -1,8 +1,10 @@
 from dataclasses import dataclass
-from datetime import datetime
+
+from models.TrainStation import TrainStation
 
 
 @dataclass
 class Stop:
-    station_id: str
-    departure_time: datetime
+    station: TrainStation
+    arrival_time: tuple[int, int] | None
+    departure_time: tuple[int, int] | None

@@ -1,7 +1,7 @@
 import re
 from abc import ABC, abstractmethod
 
-from Stop import Stop
+from models.Stop import Stop
 
 
 class BaseTrain(ABC):
@@ -47,7 +47,13 @@ class BaseTrain(ABC):
         pass
 
     def add_stop(self, stop):
-        ...
+        if not isinstance(stop, Stop):
+            raise ValueError("stop must be a Stop object")
+        
+        for s in self._stops:
+            if s.n == stop.station_name:
+                raise ValueError(f"Stop with station name '{stop.station_name}' already exists")
+            
 
     def remove_carriage(self, carriage):
         if carriage in self._carriages:
