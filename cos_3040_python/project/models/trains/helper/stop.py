@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from models.TrainStation import TrainStation
+from models.rail.train_station import TrainStation
 from utils.time_to_str import time_to_str
 
 

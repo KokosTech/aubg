@@ -1,6 +1,6 @@
-from models.Carriage import Carriage, CarriageType
-from models.IntercityTrain import IntercityTrain
-from models.Stop import Stop
+from models.trains.helper.Carriage import Carriage, CarriageType
+from models.trains.intercity import IntercityTrain
+from models.trains.helper.Stop import Stop
 
 
 class IntercityExpressTrain(IntercityTrain):

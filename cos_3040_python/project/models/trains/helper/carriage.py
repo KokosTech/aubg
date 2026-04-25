@@ -1,15 +1,5 @@
-from enum import Enum
-
+from models.trains.helper.carriage_types import CarriageType
 from utils.config import DEFAULT_CARRIAGE_CAPACITY
-
-
-class CarriageType(Enum):
-    SLEEPER = "sleeper"
-    CLASS2 = "2nd class"
-    CLASS1 = "1st class"
-    BISTRO = "bistro"
-    QUIET = "quiet"
-    BIKE = "bike"
 
 
 class Carriage:

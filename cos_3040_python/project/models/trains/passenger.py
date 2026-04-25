@@ -1,8 +1,8 @@
 """Module containing the PassengerTrain class, a concrete implementation of BaseTrain."""
 
-from models.BaseTrain import BaseTrain
-from models.Carriage import Carriage, CarriageType
-from models.Stop import Stop
+from models.trains.base import BaseTrain
+from models.trains.helper.Carriage import Carriage, CarriageType
+from models.trains.helper.Stop import Stop
 
 from utils.time_to_str import time_to_str
 

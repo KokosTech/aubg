@@ -1,7 +1,7 @@
 import re
 from abc import ABC, abstractmethod
 
-from models.Stop import Stop
+from models.trains.helper.Stop import Stop
 from utils.time_to_str import minutes_to_str
 
 

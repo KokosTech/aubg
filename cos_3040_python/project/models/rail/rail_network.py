@@ -1,15 +1,8 @@
 import json
 from dataclasses import dataclass
 
-from models.TrainStation import TrainStation
-
-
-@dataclass
-class Track:
-    from_station_id: str
-    to_station_id: str
-    distance_km: float
-    max_speed_kmh: int
+from models.rail.track import Track
+from models.rail.train_station import TrainStation
 
 
 class RailNetwork:
