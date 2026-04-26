@@ -4,8 +4,6 @@ from models.trains.base import BaseTrain
 from models.trains.helper.carriage import Carriage, CarriageType
 from models.trains.helper.stop import Stop
 
-from utils.time_to_str import time_to_str
-
 
 class PassengerTrain(BaseTrain):
     def __init__(self, train_id: str, name: str, carriages: list, stops: list[Stop]):
@@ -32,8 +30,8 @@ class PassengerTrain(BaseTrain):
 
         return (
             f"{self._name} ({self._train_id}) | "
-            f"From: {first.station.name} at {time_to_str(first.departure_time)} → "
-            f"To: {last.station.name} at {time_to_str(last.arrival_time)} | "
+            f"From: {first.station.name} at {first.departure_time.__str__()}, → "
+            f"To: {last.station.name} at {last.arrival_time.__str__()} | "
             f"Stops: {len(self._stops)} | "
             f"Capacity: {self.capacity}"
         )

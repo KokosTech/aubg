@@ -4,7 +4,6 @@
 
 """
 
-import utils.config as config
 from utils.menu import display_menu, get_user_choice, clear_screen
 
 

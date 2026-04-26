@@ -2,7 +2,7 @@ import re
 from abc import ABC, abstractmethod
 
 from models.trains.helper.stop import Stop
-from utils.time_to_str import minutes_to_str
+from utils.time import Time
 
 
 class BaseTrain(ABC):
@@ -125,15 +125,15 @@ class BaseTrain(ABC):
 
     def display_stops(self):
         print(
-            f"Stops on {self._name} ({self._train_id}) ({minutes_to_str(self.get_time_length_from_to())}):")
-        for s in self._stops:
+            f"Stops on {self._name} ({self._train_id}) ({Time.minutes_to_str(self.get_time_length_from_to())}):")
+        for s in self.stops:
             print(f"  - {s}")
 
     def __lt__(self, other):
-        return self._stops[0].departure_time < other._stops[0].departure_time
+        return self.stops[0].departure_time < other.stops[0].departure_time
 
     def __gt__(self, other):
-        return self._stops[0].departure_time > other._stops[0].departure_time
+        return self.stops[0].departure_time > other.stops[0].departure_time
 
     def __str__(self):
         return f"{self._name} ({self._train_id})"

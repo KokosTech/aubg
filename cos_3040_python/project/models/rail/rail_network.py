@@ -1,5 +1,4 @@
 import json
-from dataclasses import dataclass
 
 from models.rail.track import Track
 from models.rail.train_station import TrainStation
