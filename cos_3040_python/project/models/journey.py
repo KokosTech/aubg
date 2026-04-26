@@ -1,6 +1,4 @@
 from dataclasses import dataclass
-from models.trains.base import BaseTrain
-from models.trains.helper.stop import Stop
 from utils.time import Time
 
 
@@ -32,7 +30,7 @@ class Journey:
             f"Transfers: {self.num_transfers}"
         ]
         for i, (leg, board, alight) in enumerate(
-            zip(self.legs, self.boarding_stops, self.alighting_stops)
+                zip(self.legs, self.boarding_stops, self.alighting_stops)
         ):
             lines.append(
                 f"\tLeg {i + 1}: {leg.name} ({leg.train_id}) | "
@@ -45,5 +43,5 @@ class Journey:
                 transfer_time = Time.time_diff_minutes(alight.arrival_time, next_board.departure_time)
                 lines.append(f"\t\tTransfer time: {Time.minutes_to_str(transfer_time)}")
 
-        lines.append("="*72)
+        lines.append("=" * 72)
         return "\n".join(lines)

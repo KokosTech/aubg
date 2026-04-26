@@ -59,15 +59,5 @@ for (train_id, train) in sim.trains.items():
     # print(train.display_stops())
     validate_train_schedule(train, network)
 
-
-for j in sim.search_journeys("Sofia", "Stara Zagora", Time(8,0), False, "duration"):
+for j in sim.search_journeys("Sofia", "Stara Zagora", Time(8, 0), False, "duration"):
     print(j)
-
-
-# from utils.time import Time
-#
-#
-# Time(12, 30)
-# print(Time(12, 30))
-# print(Time.time_to_minutes(Time(12, 30)))
-# print(Time(12, 30).to_minutes)

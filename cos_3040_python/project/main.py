@@ -17,5 +17,6 @@ def main():
             print("Exiting TrainSimPy. Goodbye!")
             break
 
+
 if __name__ == "__main__":
     main()

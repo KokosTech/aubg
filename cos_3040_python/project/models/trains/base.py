@@ -52,7 +52,6 @@ class BaseTrain(ABC):
 
         return self.get_time_length_from_to(self.stops[0].station.name, self.stops[-1].station.name)
 
-
     # abstract as adding a carriage depends on the type of train
     @abstractmethod
     def add_carriage(self, carriage):
@@ -106,8 +105,7 @@ class BaseTrain(ABC):
             to_station = self._stops[-1].station.name
 
         def get_stop(name: str) -> Stop:
-            stop = list(filter(lambda s: s.station.name ==
-                                         name, self._stops))
+            stop = list(filter(lambda s: s.station.name == name, self._stops))
             if len(name) != 1:
                 raise NotFoundError("from_station must be in the train's stops")
 

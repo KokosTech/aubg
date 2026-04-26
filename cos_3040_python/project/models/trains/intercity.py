@@ -4,11 +4,11 @@ from models.trains.passenger import PassengerTrain
 
 class IntercityTrain(PassengerTrain):
     ALLOWED_CARRIAGE_TYPES = {
-        CarriageType.CLASS1, 
+        CarriageType.CLASS1,
         CarriageType.CLASS2,
-        CarriageType.BIKE, 
-        CarriageType.QUIET, 
-        CarriageType.BISTRO, 
+        CarriageType.BIKE,
+        CarriageType.QUIET,
+        CarriageType.BISTRO,
         CarriageType.SLEEPER
     }
 
@@ -18,9 +18,10 @@ class IntercityTrain(PassengerTrain):
 
         if carriage.carriage_type not in self.ALLOWED_CARRIAGE_TYPES:
             raise ValueError(
-                f"IntercityTrain can only have 1st class, 2nd class, bike, quiet, bistro, or sleeper carriages, got {carriage.carriage_type.value}"
+                f"IntercityTrain can only have 1st class, 2nd class, bike, quiet, bistro, or sleeper carriages, got "
+                f"{carriage.carriage_type.value}"
             )
-            
+
         self._carriages.append(carriage)
 
     @property
@@ -28,7 +29,7 @@ class IntercityTrain(PassengerTrain):
         return any(c.carriage_type == CarriageType.BISTRO for c in self._carriages)
 
     def serve_food(self):
-        ... # TODO
+        ...  # TODO
 
     def __str__(self):
         return f"[Intercity] {self._name} ({self._train_id})"

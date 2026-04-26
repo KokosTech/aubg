@@ -17,7 +17,7 @@ if os.path.exists(CONFIG_FILE) and os.path.isfile(CONFIG_FILE):
     except (FileNotFoundError, IOError):
         print(f"Error: Problem reading {CONFIG_FILE} file.")
         exit(1)
-        
+
     RAILWAYS_FILE = config.get("paths", "railways_file", fallback=RAILWAYS_FILE)
     TRAINS_FILE = config.get("paths", "trains_file", fallback=TRAINS_FILE)
     MIN_TRANSFER_TIME = config.getint("train", "min_transfer_time", fallback=MIN_TRANSFER_TIME)

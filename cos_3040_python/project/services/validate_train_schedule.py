@@ -11,11 +11,11 @@ def validate_train_schedule(train, rail_network):
         # Convert times to minutes for calculation
         arrival_time = stops[i + 1].arrival_time
         departure_time = stops[i].departure_time
-        
+
         if arrival_time and departure_time:
             scheduled_minutes = arrival_time.to_minutes - departure_time.to_minutes
             min_minutes = (track.distance_km / track.max_speed_kmh) * 60
-            
+
             if scheduled_minutes < min_minutes:
                 raise ValueError(
                     f"Schedule impossible between {from_id} and {to_id}: "

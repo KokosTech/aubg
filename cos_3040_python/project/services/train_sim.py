@@ -159,10 +159,8 @@ class TrainSim:
                     for final in final_legs:
                         results.append(Journey(
                             legs=legs + [leg.legs[0], final.legs[0]],
-                            boarding_stops=boardings +
-                                           [leg.boarding_stops[0], final.boarding_stops[0]],
-                            alighting_stops=alightings +
-                                            [leg.alighting_stops[0], final.alighting_stops[0]]
+                            boarding_stops=boardings + [leg.boarding_stops[0], final.boarding_stops[0]],
+                            alighting_stops=alightings + [leg.alighting_stops[0], final.alighting_stops[0]]
                         ))
 
                     # recurse deeper if transfers remain

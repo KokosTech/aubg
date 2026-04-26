@@ -18,9 +18,10 @@ class Stop:
         return other.arrival_time <= other.departure_time
 
     @staticmethod
-    def check_compatibility(prev: Stop, next: Stop) -> bool:
-        has_times = prev.departure_time is not None and next.arrival_time is not None
-        return has_times and next.arrival_time <= prev.departure_time
+    def check_compatibility(prev: Stop, nex: Stop) -> bool:
+        has_times = prev.departure_time is not None and nex.arrival_time is not None
+        return has_times and nex.arrival_time <= prev.departure_time
 
     def __str__(self) -> str:
-        return f"{self.station.name}: {' - '.join(filter(lambda x: x != 'N/A', [self.arrival_time.__str__(), self.departure_time.__str__()]))}"
+        return (f"{self.station.name}: "
+                f"{' - '.join(filter(lambda x: x != 'N/A', [self.arrival_time.__str__(), self.departure_time.__str__()]))}")

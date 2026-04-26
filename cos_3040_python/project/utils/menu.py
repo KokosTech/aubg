@@ -3,6 +3,7 @@
 import os
 import subprocess
 
+
 def display_menu():
     print("=== TrainSimPy Menu ===")
     print("1. Manually load data")
@@ -12,6 +13,7 @@ def display_menu():
     print("5. Find an optimal route")
     print("6. Exit")
 
+
 def get_user_choice():
     while True:
         choice = input("Enter your choice: ")
@@ -20,7 +22,8 @@ def get_user_choice():
         else:
             print("Invalid choice. Please enter a number between 1 and 6.")
             return get_user_choice()
-        
+
+
 def clear_screen():
     # fun fact, os.system is soft-deprecated (idk since when), but they got subprocess
     subprocess.call("cls" if os.name == "nt" else "clear", shell=True)
