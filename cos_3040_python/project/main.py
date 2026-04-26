@@ -4,6 +4,7 @@
 
 """
 
+
 import os
 import subprocess
 
@@ -17,6 +18,7 @@ from utils.config import RAILWAYS_FILE, TRAINS_FILE
 from utils.time import Time
 from errors.custom_exceptions import NotFoundError
 from models.trains.helper.carriage import Carriage
+from models.trains.helper.carriage_types import CarriageType
 
 # -------------------------------------------------------------------------
 # Globals
@@ -388,7 +390,7 @@ def remove_carriage_from_train():
                 break
 
         if carriage_to_remove is None:
-            print(f"Error: Carriage not found")
+            print("Error: Carriage not found")
             pause()
             return
 
@@ -532,5 +534,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
     main()
