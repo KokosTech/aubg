@@ -1,7 +1,9 @@
+import io
 import json
 import os
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 
 from errors.custom_exceptions import NotFoundError
 from models.rail.rail_network import RailNetwork
@@ -71,7 +73,9 @@ class TestRailNetwork(unittest.TestCase):
                 json.dump({"stations": ["A"]}, handle)
 
             other = RailNetwork()
-            other.load_from_json(path)
+            # so it doesnt pollute tests output
+            with io.StringIO() as buf, redirect_stdout(buf):
+                other.load_from_json(path)
             self.assertEqual(len(other.stations), 0)
             self.assertEqual(len(other.tracks), 0)
         finally:

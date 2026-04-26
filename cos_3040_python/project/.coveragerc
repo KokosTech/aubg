@@ -1,2 +1,13 @@
 [run]
-omit = tests/*
+source = .
+omit =
+    tests/*
+    */__init__.py
+
+[report]
+skip_empty = True
+exclude_lines =
+    raise NotImplementedError
+omit =
+    tests/*
+    */__init__.py
