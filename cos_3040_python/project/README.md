@@ -114,3 +114,4 @@ AI was used to generate all the json data for the rail network and trains (store
 - JetBrains AI (built-in functionality of PyCharm)
 - Claude - for generating the json data for the rail network and trains
 - Claude - for generating the "UML" diagram
+- Claude - questions for some logic designs (to clear my ideas up and to check for inconsistency)
