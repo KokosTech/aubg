@@ -60,6 +60,37 @@ class TrainSim:
             print(f"Error adding stop: {e}")
             raise
 
+    def get_trains_using_station(self, station_name: str) -> list[str]:
+        train_ids = []
+        for train_id, train in self._trains.items():
+            if any(stop.station.name == station_name for stop in train.stops):
+                train_ids.append(train_id)
+        return train_ids
+
+    def get_trains_using_track(self, from_station: str, to_station: str) -> list[str]:
+        train_ids = []
+        for train_id, train in self._trains.items():
+            # Check if train has consecutive stops using this track
+            for i in range(len(train.stops) - 1):
+                current_station = train.stops[i].station.name
+                next_station = train.stops[i + 1].station.name
+                if current_station == from_station and next_station == to_station:
+                    train_ids.append(train_id)
+                    break
+        return train_ids
+
+    def remove_trains_using_station(self, station_name: str) -> list[str]:
+        removed_ids = self.get_trains_using_station(station_name)
+        for train_id in removed_ids:
+            self.remove_train(train_id)
+        return removed_ids
+
+    def remove_trains_using_track(self, from_station: str, to_station: str) -> list[str]:
+        removed_ids = self.get_trains_using_track(from_station, to_station)
+        for train_id in removed_ids:
+            self.remove_train(train_id)
+        return removed_ids
+
     # -------------------------------------------------------------------------
     # Search
     # -------------------------------------------------------------------------
