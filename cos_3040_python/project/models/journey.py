@@ -15,7 +15,7 @@ class Journey:
         return Time.time_diff_minutes(first_dep, last_arr)
 
     @property
-    def departure_time(self) -> tuple[int, int]:
+    def departure_time(self) -> Time:
         return self.boarding_stops[0].departure_time
 
     @property

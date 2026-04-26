@@ -238,7 +238,6 @@ class TrainSim:
                 "name": train.name,
                 "carriages": [
                     {
-                        "carriage_id": c.carriage_id,
                         "carriage_type": c.carriage_type.value,
                         "capacity": c.capacity
                     }
@@ -266,6 +265,9 @@ class TrainSim:
         except (FileNotFoundError, IOError) as e:
             print(f"Continuing with empty train set. Error loading from {filename}: {e}")
             raise
+
+        if not isinstance(data, list):
+            raise ValueError("Invalid trains JSON format: root should be a list")
 
         # extend this dict when IntercityTrain / IntercityExpressTrain are added
         train_classes = {
@@ -301,10 +303,9 @@ class TrainSim:
                 train = train_class(
                     item["train_id"], item["name"], carriages, stops)
                 self._trains[train.train_id] = train
-            except NotFoundError as e:
-                print(f"Error loading train {item['train_id']}: {e}")
-            except Exception as e:
-                print(f"Error loading train {item['train_id']}: {e}")
+            except (NotFoundError, KeyError, TypeError, ValueError) as e:
+                train_id = item.get("train_id", "<unknown>") if isinstance(item, dict) else "<unknown>"
+                print(f"Error loading train {train_id}: {e}")
 
     def __str__(self):
         return f"TrainSim({len(self._trains)} trains, {self._rail_network})"

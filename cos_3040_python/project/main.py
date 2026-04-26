@@ -14,7 +14,7 @@ from models.trains.intercity import IntercityTrain
 from models.trains.intercity_express import IntercityExpressTrain
 from models.trains.passenger import PassengerTrain
 from services.train_sim import TrainSim
-from utils.config import RAILWAYS_FILE, TRAINS_FILE
+from utils.config import DEFAULT_CARRIAGE_CAPACITY, RAILWAYS_FILE, TRAINS_FILE
 from utils.time import Time
 from errors.custom_exceptions import NotFoundError
 from models.trains.helper.carriage import Carriage
@@ -279,7 +279,7 @@ def remove_station():
         print(f"✓ Station '{name}' removed.")
         network.save_to_json(RAILWAYS_FILE)
         sim.save_trains_to_json(TRAINS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -306,7 +306,7 @@ def remove_track():
         print(f"✓ Track {from_id} → {to_id} removed.")
         network.save_to_json(RAILWAYS_FILE)
         sim.save_trains_to_json(TRAINS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -321,7 +321,7 @@ def remove_train():
         sim.remove_train(train_id)
         print(f"✓ Train '{train_id}' removed.")
         sim.save_trains_to_json(TRAINS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -346,14 +346,14 @@ def add_carriage_to_train():
 
     try:
         carriage_type = CarriageType(carriage_type_name)
-        capacity_str = input("Capacity (default 50): ").strip()
-        capacity = int(capacity_str) if capacity_str else 50
+        capacity_str = input(f"Capacity (default {DEFAULT_CARRIAGE_CAPACITY}): ").strip()
+        capacity = int(capacity_str) if capacity_str else DEFAULT_CARRIAGE_CAPACITY
 
         carriage = Carriage(carriage_type, capacity)
         train.add_carriage(carriage)
         print(f"✓ {carriage} added to train '{train_id}'.")
         sim.save_trains_to_json(TRAINS_FILE)
-    except (ValueError, TypeError) as e:
+    except (ValueError, TypeError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
