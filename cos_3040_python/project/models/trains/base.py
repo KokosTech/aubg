@@ -2,6 +2,7 @@ import re
 from abc import ABC, abstractmethod
 
 from errors.custom_exceptions import NotFoundError
+from models.trains.helper.carriage import Carriage
 from models.trains.helper.stop import Stop
 from utils.time import Time
 
@@ -17,8 +18,8 @@ class BaseTrain(ABC):
             raise ValueError("name must be a non-empty string")
         self._name = name
 
-        if not isinstance(carriages, list) or not all(isinstance(carriage, object) for carriage in carriages):
-            raise ValueError("carriages must be a list of objects")
+        if not isinstance(carriages, list) or not all(isinstance(carriage, Carriage) for carriage in carriages):
+            raise ValueError("carriages must be a list of Carriage objects")
         self._carriages = carriages
 
         if not isinstance(stops, list) or not all(isinstance(stop, Stop) for stop in stops):
@@ -72,7 +73,7 @@ class BaseTrain(ABC):
 
         # arrival must be before departure at the same stop
         if stop.arrival_time and stop.departure_time:
-            if Stop.check_validity(stop):
+            if not Stop.check_validity(stop):
                 raise ValueError(
                     "arrival_time must be before departure_time at the same stop")
 

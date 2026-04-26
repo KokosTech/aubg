@@ -5,7 +5,6 @@ def validate_train_schedule(train, rail_network):
         from_id = stops[i].station.name
         to_id = stops[i + 1].station.name
 
-        # you'd add this to RailNetwork
         track = rail_network.get_track(from_id, to_id)
 
         # Convert times to minutes for calculation
@@ -13,6 +12,10 @@ def validate_train_schedule(train, rail_network):
         departure_time = stops[i].departure_time
 
         if arrival_time and departure_time:
+            if track is None:
+                raise ValueError(
+                    f"Missing track between {from_id} and {to_id} for train schedule validation"
+                )
             scheduled_minutes = arrival_time.to_minutes - departure_time.to_minutes
             min_minutes = (track.distance_km / track.max_speed_kmh) * 60
 

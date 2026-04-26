@@ -23,6 +23,10 @@ class IntercityExpressTrain(IntercityTrain):
         return self.capacity - self.reserved_seats
 
     def reserve_seats(self, seats: int = 1):
+        if not isinstance(seats, int) or seats <= 0:
+            raise ValueError("seats must be a positive integer")
+        if self._reserved_seats + seats > self.capacity:
+            raise ValueError("Cannot reserve more seats than train capacity")
         self._reserved_seats += seats
 
     def __str__(self):

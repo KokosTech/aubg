@@ -15,6 +15,8 @@ from models.trains.passenger import PassengerTrain
 from services.train_sim import TrainSim
 from utils.config import RAILWAYS_FILE, TRAINS_FILE
 from utils.time import Time
+from errors.custom_exceptions import NotFoundError
+from models.trains.helper.carriage import Carriage
 
 # -------------------------------------------------------------------------
 # Globals
@@ -123,7 +125,7 @@ def add_station():
         station = network.create_station(name)
         print(f"✓ Station '{station.name}' added.")
         network.save_to_json(RAILWAYS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -144,7 +146,7 @@ def add_track():
         network.create_track(from_name, to_name, distance, max_speed)
         print(f"✓ Track {from_name} → {to_name} added.")
         network.save_to_json(RAILWAYS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -176,7 +178,7 @@ def add_train():
         sim.add_train(train)
         print(f"✓ Train '{name}' ({train_id}) added.")
         sim.save_trains_to_json(TRAINS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -251,10 +253,10 @@ def rename_station():
         return
     try:
         new_name = input("New name: ").strip()
-        network.get_station(name).name = new_name
-        print(f"✓ Renamed to '{new_name}'.")
+        network.rename_station(name, new_name)
+        print(f"✓ Renamed '{name}' to '{new_name}'.")
         network.save_to_json(RAILWAYS_FILE)
-    except ValueError as e:
+    except (ValueError, NotFoundError) as e:
         print(f"Error: {e}")
     pause()
 
@@ -331,7 +333,7 @@ def add_carriage_to_train():
         return
 
     train = sim.get_train(train_id)
-    
+
     clear_screen()
     print(f"Train: {train}")
     print("\nCarriage types:")
@@ -363,7 +365,7 @@ def remove_carriage_from_train():
         return
 
     train = sim.get_train(train_id)
-    
+
     if not train.carriages:
         print("This train has no carriages.")
         pause()

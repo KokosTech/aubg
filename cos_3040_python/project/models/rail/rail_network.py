@@ -38,6 +38,24 @@ class RailNetwork:
             raise NotFoundError(f"Station '{name}' not found")
         return self._stations[name]
 
+    def rename_station(self, old_name: str, new_name: str) -> TrainStation:
+        if old_name not in self._stations:
+            raise NotFoundError(f"Station '{old_name}' not found")
+        if new_name in self._stations and new_name != old_name:
+            raise ValueError(f"Station '{new_name}' already exists")
+
+        station = self._stations.pop(old_name)
+        station.name = new_name
+        self._stations[new_name] = station
+
+        for track in self._tracks:
+            if track.from_station_id == old_name:
+                track.from_station_id = new_name
+            if track.to_station_id == old_name:
+                track.to_station_id = new_name
+
+        return station
+
     def create_track(self, from_station: str, to_station: str, distance_km: float, max_speed_kmh: int) -> Track:
         if from_station not in self._stations:
             raise NotFoundError(f"Station '{from_station}' not found")
