@@ -38,7 +38,26 @@ Short description to be written here :3 (1-2 paragraphs)
 
 ## Class Structure
 
-I should provide only a graph (or some sort of visualization) as the short descriptions are provided in the file structure
+
+```
+    ===============================================
+    BaseTrain - abstract class for all trains
+        - PassengerTrain - concrete implementation of BaseTrain
+            - IntercityTrain - implementation over PassengerTrain - upgraded service of PassengerTrain
+                - IntercityExpressTrain - implementation over IntercityTrain - upgraded service of IntercityTrain
+    Carriage - has-a relationship with BaseTrain
+    Stop - has-a relationship with BaseTrain - represents stations with arrival and departure times
+    ===============================================
+    RailNetwork - class for the rail network - used to represent the rail network (graph)
+    TrainStation - has-a relationship with RailNetwork - used to represent the train stations (nodes)
+    Track - has-a relationship with RailNetwork - used to represent the tracks between train stations (edges)
+    ===============================================
+    TrainSim - class for the train simulation
+    Journey - has-a relationship with TrainSim
+    ===============================================
+    Time - dataclass for handling time
+    ===============================================
+```
 
 ## Special Functions & Algorithms
 
