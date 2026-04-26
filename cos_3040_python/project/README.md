@@ -2,6 +2,14 @@
 
 Short description to be written here :3 (1-2 paragraphs)
 
+TrainSimPy is a COS3020 Project for bare-bones simulation of a train scheduling system. It includes a hierarchy of train types alinged with the BDZ system of transportaion and train clasifications. It handles file persistency, simple cli operations (such as adding and removing), displaying the loaded information, and the most important functionallity - finding a route(s) from one station to another. You can imagie this project as bileti.bdz.bg - where you can find your most stuitable ticket. The search has sorting and filtering.
+
+**What does bare-bones mean?** - much of the functionallity (in my head) is not implemented due to time constraints and other group projects, exams, assignments (and general lack of time). This project covers the requirements and implements a search algorithm, and has everything interconnected within (which is quite complex due to the sheer amount of object and cases you need to think of)
+
+**Beware** - there can potentially be many logical errors
+
+**Future development** - during the summer, a proper implementation (with all CRUD operations) as well as train-specific functions such as booking, registering, etc, would be implemented 
+
 ## File Structure
 
     project:
@@ -38,36 +46,64 @@ Short description to be written here :3 (1-2 paragraphs)
 
 ## Class Structure
 
-I should provide only a graph (or some sort of visualization) as the short descriptions are provided in the file structure
 
-## Special Functions & Algorithms
+```
+    ===============================================
+    BaseTrain - abstract class for all trains
+        - PassengerTrain - concrete implementation of BaseTrain
+            - IntercityTrain - implementation over PassengerTrain - upgraded service of PassengerTrain
+                - IntercityExpressTrain - implementation over IntercityTrain - upgraded service of IntercityTrain
+    Carriage - has-a relationship with BaseTrain
+    Stop - has-a relationship with BaseTrain - represents stations with arrival and departure times
+    ===============================================
+    RailNetwork - class for the rail network - used to represent the rail network (graph)
+    TrainStation - has-a relationship with RailNetwork - used to represent the train stations (nodes)
+    Track - has-a relationship with RailNetwork - used to represent the tracks between train stations (edges)
+    ===============================================
+    TrainSim - class for the train simulation
+    Journey - has-a relationship with TrainSim
+    ===============================================
+    Time - dataclass for handling time
+    ===============================================
+```
 
-### Search Algorithm
+## Search Algorithm
 
-### Other Things - to be thought of what's actually important
+The search algorithm is implemented using a breadth-first search (BFS) approach. It is used to find the shortest path between two stations. It is also used to find the shortest path between two stations with a given departure time.
 
 ## User Guide
 
 ### Installation
 
-how to clone repo, go to project folder, and install required packages
+```
+git clone https://github.com/KokosTech/aubg
+cd cos_3040_python/project
+pip install -r requirements.txt
+```
 
 ### Getting Started
 
-how to setup config (optional), how to input data files (optional)
 
-### Video
+```
+python main.py
+```
 
-[copy paste from requirements]
+### Running Tests
 
-o First you should run your project and explain in short what your project is doing (e.g. if there is a menu with different options you should show if any of the options are chosen what would be the result etc).
+```
+python -m unittest discover tests
+```
 
-o After you have shown that your project works, you should open the code and go through the classes/methods and show and explain how each of the requirements was implemented in your project.
-
-o Then you should run the unit tests to show that they pass.
-
-o Finally run the coverage and show the coverage report.
+```
+coverage run -m unittest discover tests
+coverage report -m
+```
 
 ## Use of Generative AI
 
-To be written
+AI was used to generate all the json data for the rail network and trains (stored in the data folder). The built-in functionality of PyCharm was used for assistance with suggesting in-line code improvements (just like in class and during the exams).
+
+**_Used AI tools:_**
+
+- JetBrains AI (built-in functionality of PyCharm)
+- Claude - for generating the json data for the rail network and trains
