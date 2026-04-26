@@ -50,90 +50,38 @@ class BaseTrain(ABC):
     def add_carriage(self, carriage):
         pass
 
-    def add_stop(self, stop: Stop, prev_stop: Stop | None = None):
+    def add_stop(self, stop: Stop, duration: int):
         if not isinstance(stop, Stop):
             raise TypeError("stop must be a Stop instance")
 
-        # case 1 - empty schedule
-        if not self._stops:
-            if stop.departure_time is None:
+        # if not the first stop, arrival_time is required
+        if self._stops and stop.arrival_time is None:
+            raise ValueError(
+                "arrival_time is required for all stops except the first")
+
+        # if it is the first stop, departure_time is required
+        if not self._stops and stop.departure_time is None:
+            raise ValueError("departure_time is required for the first stop")
+
+        # arrival must be before departure at the same stop
+        if stop.arrival_time and stop.departure_time:
+            if Stop.check_validity(stop):
                 raise ValueError(
-                    "departure_time is required for the first stop")
+                    "arrival_time must be before departure_time at the same stop")
 
-            self._stops.append(stop)
-            return
+        # new stop must be chronologically after the previous one
+        if self._stops:
+            prev = self._stops[-1]
+            prev.departure_time = prev.arrival_time + duration
 
-        # if Stop.check_validity(stop):
-        #     raise ValueError("arrival_time must be before departure_time")
+            if prev.departure_time and stop.arrival_time:
+                if stop.arrival_time <= prev.departure_time:
+                    raise ValueError(
+                        f"Stop at '{stop.station.name}' must arrive after previous stop "
+                        f"departs at {prev.departure_time}"
+                    )
 
-        # case 2 - new first stop
-        if prev_stop is None:
-            if stop.departure_time is None:
-                raise ValueError(
-                    "departure_time is required for the first stop")
-
-            current_first = self._stops[0]
-
-            if current_first.arrival_time is None:
-                delta = Time.time_diff_minutes(stop.departure_time, current_first.departure_time) + 1
-            else:
-                delta = Time.time_diff_minutes(stop.departure_time, current_first.arrival_time)
-
-            if delta < 0:
-                raise ValueError(
-                    f"New first stop departs after the current first stop arrives — "
-                    f"cannot insert '{stop.station.name}' before '{current_first.station.name}'"
-                )
-
-            current_first.arrival_time = stop.departure_time + 1
-            self._stops = [stop] + [self._shift_stop(s, delta) for s in self._stops]
-            return
-
-    def _shift_stop(self, stop: Stop, delta_minutes: int) -> Stop:
-        def shift(t: Time | None) -> Time | None:
-            return Time.minutes_to_time(t.to_minutes + delta_minutes) if t else None
-
-        return Stop(
-            station=stop.station,
-            arrival_time=shift(stop.arrival_time),
-            departure_time=shift(stop.departure_time)
-        )
-
-        # # if not the first stop, arrival_time is required
-        # if self._stops and stop.arrival_time is None:
-        #     raise ValueError(
-        #         "arrival_time is required for all stops except the first")
-        #
-        # # if it is the first stop, departure_time is required
-        # if not self._stops and stop.departure_time is None:
-        #     raise ValueError("departure_time is required for the first stop")
-        #
-        # # arrival must be before departure at the same stop
-        # if stop.arrival_time and stop.departure_time:
-        #     if stop.arrival_time >= stop.departure_time:
-        #         raise ValueError(
-        #             "arrival_time must be before departure_time at the same stop")
-        #
-        # # new stop must be chronologically after the previous one
-        # if self._stops:
-        #     prev = self._stops[-1]
-        #     if prev.departure_time and stop.arrival_time:
-        #         if stop.arrival_time <= prev.departure_time:
-        #             raise ValueError(
-        #                 f"Stop at '{stop.station.name}' must arrive after previous stop "
-        #                 f"departs at {prev.departure_time}"
-        #             )
-        #
-        # # mark previous last stop's departure as required now
-        # if self._stops:
-        #     prev = self._stops[-1]
-        #     if prev.departure_time is None:
-        #         raise ValueError(
-        #             f"Previous stop '{prev.station.name}' has no departure_time — "
-        #             "only the last stop can have no departure_time"
-        #         )
-        #
-        # self._stops.append(stop)
+        self._stops.append(stop)
 
     def remove_carriage(self, carriage):
         if carriage in self._carriages:
