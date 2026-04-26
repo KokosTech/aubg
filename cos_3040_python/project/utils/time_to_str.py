@@ -1,5 +1,10 @@
-def time_to_str(time_tuple):
-    return f"{time_tuple[0]:02d}:{time_tuple[1]:02d}" if time_tuple else "N/A"
+from models.trains.helper.time import Time
+
+def time_to_str(time: Time | tuple[int, int] | None):
+    if isinstance(time, tuple):
+        return f"{time[0]:02d}:{time[1]:02d}" if time else "N/A"
+
+    return time.__str__() if time else "N/A"
 
 def minutes_to_str(minutes):
     hours = minutes // 60

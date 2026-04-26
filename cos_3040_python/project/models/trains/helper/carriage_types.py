@@ -2,9 +2,9 @@ from enum import Enum
 
 
 class CarriageType(Enum):
-    SLEEPER = "SLEEPER"
-    CLASS2 = "CLASS2"
-    CLASS1 = "CLASS1"
-    BISTRO = "BISTRO"
-    QUIET = "QUIET"
-    BIKE = "BIKE"
+    SLEEPER = "sleeper"
+    CLASS2 = "2nd class"
+    CLASS1 = "1st class"
+    BISTRO = "bistro"
+    QUIET = "quiet"
+    BIKE = "bike"

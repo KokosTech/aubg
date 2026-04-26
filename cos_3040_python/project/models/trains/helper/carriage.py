@@ -5,7 +5,7 @@ from utils.config import DEFAULT_CARRIAGE_CAPACITY
 class Carriage:
     def __init__(
         self,
-        carriage_type: CarriageType,
+        carriage_type: CarriageType = CarriageType.CLASS2,
         capacity: int = DEFAULT_CARRIAGE_CAPACITY
     ):
         if not isinstance(carriage_type, CarriageType):
@@ -32,9 +32,4 @@ class Carriage:
         self._capacity = value
 
     def __str__(self):
-        return f"Carriage ({self._carriage_type.value}, capacity: {self._capacity})"
-
-    def __repr__(self):
-        return (
-            f"carriage_type={self._carriage_type!r}, "
-            f"capacity={self._capacity!r})")
+        return f"{self._carriage_type.value.capitalize()} carriage ({self._capacity} seats)"

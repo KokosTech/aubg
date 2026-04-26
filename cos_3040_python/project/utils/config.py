@@ -1,19 +1,21 @@
 import configparser
 import os
 
+CONFIG_FILE = "config.ini"
+
 RAILWAYS_FILE = "railways.json"
 TRAINS_FILE = "trains.json"
 MIN_TRANSFER_TIME = 5
 DEFAULT_CARRIAGE_CAPACITY = 60
 
-if os.path.exists("config.ini") and os.path.isfile("config.ini"):
+if os.path.exists(CONFIG_FILE) and os.path.isfile(CONFIG_FILE):
     config = configparser.ConfigParser()
 
     try:
-        with open("config.ini", "r") as f:
+        with open(CONFIG_FILE, "r") as f:
             config.read_file(f)
-    except FileNotFoundError, IOError:
-        print("Error: Problem reading config.ini file.")
+    except (FileNotFoundError, IOError):
+        print(f"Error: Problem reading {CONFIG_FILE} file.")
         exit(1)
         
     RAILWAYS_FILE = config.get("paths", "railways_file", fallback=RAILWAYS_FILE)
