@@ -13,7 +13,7 @@ def validate_train_schedule(train, rail_network):
         departure_time = stops[i].departure_time
         
         if arrival_time and departure_time:
-            scheduled_minutes = (arrival_time[0] * 60 + arrival_time[1]) - (departure_time[0] * 60 + departure_time[1])
+            scheduled_minutes = arrival_time.to_minutes - departure_time.to_minutes
             min_minutes = (track.distance_km / track.max_speed_kmh) * 60
             
             if scheduled_minutes < min_minutes:

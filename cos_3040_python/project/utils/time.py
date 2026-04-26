@@ -10,7 +10,9 @@ class Time:
         if not (0 <= self.hour < 24):
             raise ValueError("hour must be 0–23")
         if not (0 <= self.minute < 60):
-            raise ValueError("minute must be 0–59")
+            overflow = self.minute // 60
+            self.hour = (self.hour + overflow) % 24
+            self.minute %= 60
 
     @property
     def to_minutes(self) -> int:
@@ -25,13 +27,31 @@ class Time:
 
     @staticmethod
     def time_to_minutes(time: Time) -> int:
-        return time.hour * 60 + time.minute
+        return time.to_minutes
 
     @staticmethod
     def time_diff_minutes(self, other: Time) -> int:
         if not isinstance(other, Time):
             raise TypeError("other must be a Time instance")
         return self.time_to_minutes(other) - self.time_to_minutes(self)
+
+    @staticmethod
+    def time_to_str(time: Time | tuple[int, int] | None):
+        if isinstance(time, tuple):
+            return f"{time[0]:02d}:{time[1]:02d}" if time else "N/A"
+
+        return time.__str__() if time else "N/A"
+
+    @staticmethod
+    def minutes_to_str(minutes: int):
+        hours = minutes // 60
+        mins = minutes % 60
+        return Time.time_to_str((hours, mins))
+
+    def __add__(self, other: int) -> Time:
+        if not isinstance(other, int):
+            raise TypeError("other must be an integer")
+        return Time(self.hour, self.minute + other)
 
     def __lt__(self, other: Time) -> bool:
         if not isinstance(other, Time):

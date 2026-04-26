@@ -2,7 +2,6 @@ import re
 from abc import ABC, abstractmethod
 
 from models.trains.helper.stop import Stop
-from models.trains.helper.time import Time
 from utils.time_to_str import minutes_to_str
 
 
@@ -110,11 +109,8 @@ class BaseTrain(ABC):
             raise ValueError(
                 "Both stops must have departure and arrival times respectively")
 
-        def get_minutes(time: tuple[int, int]) -> int:
-            return time[0] * 60 + time[1]
-
-        from_minutes = get_minutes(from_stop.departure_time)
-        to_minutes = get_minutes(to_stop.arrival_time)
+        from_minutes = from_stop.departure_time.to_minutes
+        to_minutes = to_stop.arrival_time.to_minutes
 
         if to_minutes < from_minutes:
             raise ValueError(

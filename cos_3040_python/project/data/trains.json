@@ -4,8 +4,8 @@
     "train_id": "BV-1234",
     "name": "Maritsa",
     "carriages": [
-      { "carriage_id": "BV1234-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1234-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1234-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1234-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1234-C3", "carriage_type": "quiet", "capacity": 40 },
       { "carriage_id": "BV1234-C4", "carriage_type": "bike", "capacity": 20 }
     ],
@@ -29,9 +29,9 @@
     "train_id": "IC-2001",
     "name": "Black Sea Express",
     "carriages": [
-      { "carriage_id": "IC2001-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2001-C2", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "IC2001-C3", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2001-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2001-C2", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "IC2001-C3", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2001-C4", "carriage_type": "bistro", "capacity": 30 },
       { "carriage_id": "IC2001-C5", "carriage_type": "quiet", "capacity": 40 }
     ],
@@ -55,8 +55,8 @@
     "train_id": "IE-3001",
     "name": "Thracian Star",
     "carriages": [
-      { "carriage_id": "IE3001-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IE3001-C2", "carriage_type": "class1", "capacity": 50 },
+      { "carriage_id": "IE3001-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IE3001-C2", "carriage_type": "1st class", "capacity": 50 },
       { "carriage_id": "IE3001-C3", "carriage_type": "bistro", "capacity": 28 },
       { "carriage_id": "IE3001-C4", "carriage_type": "quiet", "capacity": 40 }
     ],
@@ -80,8 +80,8 @@
     "train_id": "BV-1235",
     "name": "Rodopi",
     "carriages": [
-      { "carriage_id": "BV1235-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1235-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1235-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1235-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1235-C3", "carriage_type": "quiet", "capacity": 40 }
     ],
     "stops": [
@@ -104,8 +104,8 @@
     "train_id": "IC-2002",
     "name": "Balkan",
     "carriages": [
-      { "carriage_id": "IC2002-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2002-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2002-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2002-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2002-C3", "carriage_type": "bistro", "capacity": 30 },
       { "carriage_id": "IC2002-C4", "carriage_type": "quiet", "capacity": 40 },
       { "carriage_id": "IC2002-C5", "carriage_type": "bike", "capacity": 20 }
@@ -131,8 +131,8 @@
     "train_id": "BV-1236",
     "name": "Danube",
     "carriages": [
-      { "carriage_id": "BV1236-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1236-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1236-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1236-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1236-C3", "carriage_type": "bike", "capacity": 20 }
     ],
     "stops": [
@@ -150,8 +150,8 @@
     "train_id": "IE-3002",
     "name": "Varna Express",
     "carriages": [
-      { "carriage_id": "IE3002-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IE3002-C2", "carriage_type": "class1", "capacity": 50 },
+      { "carriage_id": "IE3002-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IE3002-C2", "carriage_type": "1st class", "capacity": 50 },
       { "carriage_id": "IE3002-C3", "carriage_type": "bistro", "capacity": 28 },
       { "carriage_id": "IE3002-C4", "carriage_type": "quiet", "capacity": 40 },
       { "carriage_id": "IE3002-C5", "carriage_type": "bike", "capacity": 16 }
@@ -181,7 +181,7 @@
     "train_id": "BV-1237",
     "name": "Plovdiv Local",
     "carriages": [
-      { "carriage_id": "BV1237-C1", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1237-C1", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1237-C2", "carriage_type": "bike", "capacity": 20 }
     ],
     "stops": [
@@ -194,7 +194,7 @@
     "train_id": "BV-1238",
     "name": "Karlovo Local",
     "carriages": [
-      { "carriage_id": "BV1238-C1", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1238-C1", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1238-C2", "carriage_type": "bike", "capacity": 20 }
     ],
     "stops": [
@@ -207,8 +207,8 @@
     "train_id": "IC-2003",
     "name": "Sredna Gora",
     "carriages": [
-      { "carriage_id": "IC2003-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2003-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2003-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2003-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2003-C3", "carriage_type": "bistro", "capacity": 30 }
     ],
     "stops": [
@@ -226,8 +226,8 @@
     "train_id": "BV-1239",
     "name": "Rila",
     "carriages": [
-      { "carriage_id": "BV1239-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1239-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1239-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1239-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1239-C3", "carriage_type": "quiet", "capacity": 40 }
     ],
     "stops": [
@@ -244,8 +244,8 @@
     "train_id": "BV-1240",
     "name": "Rila Return",
     "carriages": [
-      { "carriage_id": "BV1240-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1240-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1240-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1240-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1240-C3", "carriage_type": "quiet", "capacity": 40 }
     ],
     "stops": [
@@ -262,8 +262,8 @@
     "train_id": "IC-2004",
     "name": "Vitosha",
     "carriages": [
-      { "carriage_id": "IC2004-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2004-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2004-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2004-C2", "carriage_type": "2nd class", "capacity": 60 },
       {
         "carriage_id": "IC2004-C3",
         "carriage_type": "sleeper",
@@ -291,8 +291,8 @@
     "train_id": "BV-1241",
     "name": "Struma",
     "carriages": [
-      { "carriage_id": "BV1241-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1241-C2", "carriage_type": "class2", "capacity": 60 }
+      { "carriage_id": "BV1241-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1241-C2", "carriage_type": "2nd class", "capacity": 60 }
     ],
     "stops": [
       { "station": "Pleven", "arrival_time": null, "departure_time": [9, 0] },
@@ -313,8 +313,8 @@
     "train_id": "IC-2005",
     "name": "Yantra",
     "carriages": [
-      { "carriage_id": "IC2005-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2005-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2005-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2005-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2005-C3", "carriage_type": "bistro", "capacity": 30 },
       {
         "carriage_id": "IC2005-C4",
@@ -348,8 +348,8 @@
     "train_id": "BV-1242",
     "name": "Hebros",
     "carriages": [
-      { "carriage_id": "BV1242-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1242-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1242-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1242-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1242-C3", "carriage_type": "bike", "capacity": 20 }
     ],
     "stops": [
@@ -372,8 +372,8 @@
     "train_id": "IE-3003",
     "name": "Plovdiv Express",
     "carriages": [
-      { "carriage_id": "IE3003-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IE3003-C2", "carriage_type": "class1", "capacity": 50 },
+      { "carriage_id": "IE3003-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IE3003-C2", "carriage_type": "1st class", "capacity": 50 },
       { "carriage_id": "IE3003-C3", "carriage_type": "quiet", "capacity": 40 }
     ],
     "stops": [
@@ -386,8 +386,8 @@
     "train_id": "IE-3004",
     "name": "Sofia Express",
     "carriages": [
-      { "carriage_id": "IE3004-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IE3004-C2", "carriage_type": "class1", "capacity": 50 },
+      { "carriage_id": "IE3004-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IE3004-C2", "carriage_type": "1st class", "capacity": 50 },
       { "carriage_id": "IE3004-C3", "carriage_type": "quiet", "capacity": 40 },
       { "carriage_id": "IE3004-C4", "carriage_type": "bistro", "capacity": 28 }
     ],
@@ -401,8 +401,8 @@
     "train_id": "BV-1243",
     "name": "Coast",
     "carriages": [
-      { "carriage_id": "BV1243-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1243-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1243-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1243-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1243-C3", "carriage_type": "bike", "capacity": 20 }
     ],
     "stops": [
@@ -415,8 +415,8 @@
     "train_id": "BV-1244",
     "name": "Coast Return",
     "carriages": [
-      { "carriage_id": "BV1244-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1244-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1244-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1244-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1244-C3", "carriage_type": "bike", "capacity": 20 }
     ],
     "stops": [
@@ -429,8 +429,8 @@
     "train_id": "IC-2006",
     "name": "Dobrich Express",
     "carriages": [
-      { "carriage_id": "IC2006-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2006-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2006-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2006-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2006-C3", "carriage_type": "bistro", "capacity": 30 }
     ],
     "stops": [
@@ -448,8 +448,8 @@
     "train_id": "BV-1245",
     "name": "Danube Return",
     "carriages": [
-      { "carriage_id": "BV1245-C1", "carriage_type": "class2", "capacity": 60 },
-      { "carriage_id": "BV1245-C2", "carriage_type": "class2", "capacity": 60 }
+      { "carriage_id": "BV1245-C1", "carriage_type": "2nd class", "capacity": 60 },
+      { "carriage_id": "BV1245-C2", "carriage_type": "2nd class", "capacity": 60 }
     ],
     "stops": [
       { "station": "Varna", "arrival_time": null, "departure_time": [14, 0] },
@@ -466,8 +466,8 @@
     "train_id": "IC-2007",
     "name": "Evening Balkan",
     "carriages": [
-      { "carriage_id": "IC2007-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2007-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2007-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2007-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2007-C3", "carriage_type": "bistro", "capacity": 30 },
       { "carriage_id": "IC2007-C4", "carriage_type": "sleeper", "capacity": 30 }
     ],
@@ -491,7 +491,7 @@
     "train_id": "BV-1246",
     "name": "Evening Local",
     "carriages": [
-      { "carriage_id": "BV1246-C1", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "BV1246-C1", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "BV1246-C2", "carriage_type": "quiet", "capacity": 40 }
     ],
     "stops": [
@@ -504,8 +504,8 @@
     "train_id": "IC-2008",
     "name": "Northern Star",
     "carriages": [
-      { "carriage_id": "IC2008-C1", "carriage_type": "class1", "capacity": 50 },
-      { "carriage_id": "IC2008-C2", "carriage_type": "class2", "capacity": 60 },
+      { "carriage_id": "IC2008-C1", "carriage_type": "1st class", "capacity": 50 },
+      { "carriage_id": "IC2008-C2", "carriage_type": "2nd class", "capacity": 60 },
       { "carriage_id": "IC2008-C3", "carriage_type": "bistro", "capacity": 30 },
       { "carriage_id": "IC2008-C4", "carriage_type": "quiet", "capacity": 40 }
     ],
