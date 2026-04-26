@@ -3,14 +3,14 @@
 import json
 
 from errors.custom_exceptions import NotFoundError
-from models.trains.intercity_express import IntercityExpressTrain
-from models.trains.intercity import IntercityTrain
+from models.journey import Journey
+from models.rail.rail_network import RailNetwork
 from models.trains.base import BaseTrain
 from models.trains.helper.carriage import Carriage, CarriageType
-from models.journey import Journey
-from models.trains.passenger import PassengerTrain
-from models.rail.rail_network import RailNetwork
 from models.trains.helper.stop import Stop
+from models.trains.intercity import IntercityTrain
+from models.trains.intercity_express import IntercityExpressTrain
+from models.trains.passenger import PassengerTrain
 from services.validate_train_schedule import validate_train_schedule
 from utils.config import MIN_TRANSFER_TIME
 from utils.time import Time
