@@ -84,7 +84,7 @@ class BaseTrain(ABC):
             if prev.departure_time is None:
                 prev.departure_time = prev.arrival_time + duration
 
-            if Stop.check_compatibility(prev, stop):
+            if not Stop.check_compatibility(prev, stop):
                 raise ValueError(
                     f"Stop at '{stop.station.name}' must arrive after previous stop "
                     f"departs at {prev.departure_time}"
@@ -118,7 +118,7 @@ class BaseTrain(ABC):
         from_stop = get_stop(from_station)
         to_stop = get_stop(to_station)
 
-        if Stop.check_compatibility(from_stop, to_stop):
+        if not Stop.check_compatibility(from_stop, to_stop):
             raise ValueError(
                 f"from_station must arrive after previous stop departs at {from_stop.departure_time}")
 

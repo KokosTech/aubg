@@ -21,7 +21,7 @@ class Stop:
     @staticmethod
     def check_compatibility(prev: Stop, nex: Stop) -> bool:
         has_times = prev.departure_time is not None and nex.arrival_time is not None
-        return has_times and nex.arrival_time <= prev.departure_time
+        return has_times and nex.arrival_time > prev.departure_time
 
     def __str__(self) -> str:
         return (f"{self.station.name}: "
