@@ -19,6 +19,10 @@ class Journey:
         return self.boarding_stops[0].departure_time
 
     @property
+    def arrival_time(self) -> Time:
+        return self.alighting_stops[-1].arrival_time
+
+    @property
     def num_transfers(self) -> int:
         return len(self.legs) - 1
 

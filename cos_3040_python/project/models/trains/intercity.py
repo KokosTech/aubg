@@ -29,7 +29,7 @@ class IntercityTrain(PassengerTrain):
         return any(c.carriage_type == CarriageType.BISTRO for c in self._carriages)
 
     def serve_food(self):
-        ...  # TODO
+        return NotImplementedError("in the summer")
 
     def __str__(self):
         return f"[Intercity] {self._name} ({self._train_id})"

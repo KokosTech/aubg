@@ -14,9 +14,8 @@ if os.path.exists(CONFIG_FILE) and os.path.isfile(CONFIG_FILE):
     try:
         with open(CONFIG_FILE, "r") as f:
             config.read_file(f)
-    except (FileNotFoundError, IOError):
-        print(f"Error: Problem reading {CONFIG_FILE} file.")
-        exit(1)
+    except (FileNotFoundError, IOError) as e:
+        raise RuntimeError(f"Problem reading {CONFIG_FILE} file: {e}") from e
 
     RAILWAYS_FILE = config.get("paths", "railways_file", fallback=RAILWAYS_FILE)
     TRAINS_FILE = config.get("paths", "trains_file", fallback=TRAINS_FILE)

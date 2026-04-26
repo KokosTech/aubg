@@ -7,3 +7,5 @@ env/
 .idea/
 *.iml
 .DS_Store
+.coverage
+coverage_html/

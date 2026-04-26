@@ -4,24 +4,62 @@
     "train_id": "BV-1234",
     "name": "Maritsa",
     "carriages": [
-      { "carriage_id": "BV1234-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1234-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1234-C3", "carriage_type": "quiet", "capacity": 40 },
-      { "carriage_id": "BV1234-C4", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [6, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          6,
+          0
+        ]
+      },
       {
         "station": "Plovdiv",
-        "arrival_time": [7, 20],
-        "departure_time": [7, 25]
+        "arrival_time": [
+          7,
+          20
+        ],
+        "departure_time": [
+          7,
+          25
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [8, 20],
-        "departure_time": [8, 25]
+        "arrival_time": [
+          8,
+          20
+        ],
+        "departure_time": [
+          8,
+          25
+        ]
       },
-      { "station": "Burgas", "arrival_time": [10, 15], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          10,
+          15
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -29,25 +67,66 @@
     "train_id": "IC-2001",
     "name": "Black Sea Express",
     "carriages": [
-      { "carriage_id": "IC2001-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2001-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2001-C3", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2001-C4", "carriage_type": "bistro", "capacity": 30 },
-      { "carriage_id": "IC2001-C5", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [8, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          8,
+          0
+        ]
+      },
       {
         "station": "Plovdiv",
-        "arrival_time": [9, 18],
-        "departure_time": [9, 23]
+        "arrival_time": [
+          9,
+          18
+        ],
+        "departure_time": [
+          9,
+          23
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [10, 18],
-        "departure_time": [10, 23]
+        "arrival_time": [
+          10,
+          18
+        ],
+        "departure_time": [
+          10,
+          23
+        ]
       },
-      { "station": "Burgas", "arrival_time": [12, 10], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          12,
+          10
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -55,24 +134,62 @@
     "train_id": "IE-3001",
     "name": "Thracian Star",
     "carriages": [
-      { "carriage_id": "IE3001-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3001-C2", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3001-C3", "carriage_type": "bistro", "capacity": 28 },
-      { "carriage_id": "IE3001-C4", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 28
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [10, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          10,
+          0
+        ]
+      },
       {
         "station": "Plovdiv",
-        "arrival_time": [11, 18],
-        "departure_time": [11, 22]
+        "arrival_time": [
+          11,
+          18
+        ],
+        "departure_time": [
+          11,
+          22
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [12, 16],
-        "departure_time": [12, 20]
+        "arrival_time": [
+          12,
+          16
+        ],
+        "departure_time": [
+          12,
+          20
+        ]
       },
-      { "station": "Burgas", "arrival_time": [14, 5], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          14,
+          5
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -80,23 +197,58 @@
     "train_id": "BV-1235",
     "name": "Rodopi",
     "carriages": [
-      { "carriage_id": "BV1235-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1235-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1235-C3", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Burgas", "arrival_time": null, "departure_time": [6, 0] },
+      {
+        "station": "Burgas",
+        "arrival_time": null,
+        "departure_time": [
+          6,
+          0
+        ]
+      },
       {
         "station": "Stara Zagora",
-        "arrival_time": [7, 50],
-        "departure_time": [7, 55]
+        "arrival_time": [
+          7,
+          50
+        ],
+        "departure_time": [
+          7,
+          55
+        ]
       },
       {
         "station": "Plovdiv",
-        "arrival_time": [8, 50],
-        "departure_time": [8, 55]
+        "arrival_time": [
+          8,
+          50
+        ],
+        "departure_time": [
+          8,
+          55
+        ]
       },
-      { "station": "Sofia", "arrival_time": [10, 15], "departure_time": null }
+      {
+        "station": "Sofia",
+        "arrival_time": [
+          10,
+          15
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -104,26 +256,77 @@
     "train_id": "IC-2002",
     "name": "Balkan",
     "carriages": [
-      { "carriage_id": "IC2002-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2002-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2002-C3", "carriage_type": "bistro", "capacity": 30 },
-      { "carriage_id": "IC2002-C4", "carriage_type": "quiet", "capacity": 40 },
-      { "carriage_id": "IC2002-C5", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [7, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          7,
+          0
+        ]
+      },
       {
         "station": "Pleven",
-        "arrival_time": [8, 30],
-        "departure_time": [8, 35]
+        "arrival_time": [
+          8,
+          30
+        ],
+        "departure_time": [
+          8,
+          35
+        ]
       },
-      { "station": "Ruse", "arrival_time": [9, 50], "departure_time": [9, 55] },
+      {
+        "station": "Ruse",
+        "arrival_time": [
+          9,
+          50
+        ],
+        "departure_time": [
+          9,
+          55
+        ]
+      },
       {
         "station": "Shumen",
-        "arrival_time": [10, 58],
-        "departure_time": [11, 3]
+        "arrival_time": [
+          10,
+          58
+        ],
+        "departure_time": [
+          11,
+          3
+        ]
       },
-      { "station": "Varna", "arrival_time": [11, 52], "departure_time": null }
+      {
+        "station": "Varna",
+        "arrival_time": [
+          11,
+          52
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -131,18 +334,47 @@
     "train_id": "BV-1236",
     "name": "Danube",
     "carriages": [
-      { "carriage_id": "BV1236-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1236-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1236-C3", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Ruse", "arrival_time": null, "departure_time": [7, 30] },
+      {
+        "station": "Ruse",
+        "arrival_time": null,
+        "departure_time": [
+          7,
+          30
+        ]
+      },
       {
         "station": "Shumen",
-        "arrival_time": [8, 35],
-        "departure_time": [8, 40]
+        "arrival_time": [
+          8,
+          35
+        ],
+        "departure_time": [
+          8,
+          40
+        ]
       },
-      { "station": "Varna", "arrival_time": [9, 30], "departure_time": null }
+      {
+        "station": "Varna",
+        "arrival_time": [
+          9,
+          30
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -150,30 +382,77 @@
     "train_id": "IE-3002",
     "name": "Varna Express",
     "carriages": [
-      { "carriage_id": "IE3002-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3002-C2", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3002-C3", "carriage_type": "bistro", "capacity": 28 },
-      { "carriage_id": "IE3002-C4", "carriage_type": "quiet", "capacity": 40 },
-      { "carriage_id": "IE3002-C5", "carriage_type": "bike", "capacity": 16 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 28
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 16
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [9, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          9,
+          0
+        ]
+      },
       {
         "station": "Pleven",
-        "arrival_time": [10, 28],
-        "departure_time": [10, 32]
+        "arrival_time": [
+          10,
+          28
+        ],
+        "departure_time": [
+          10,
+          32
+        ]
       },
       {
         "station": "Ruse",
-        "arrival_time": [11, 46],
-        "departure_time": [11, 50]
+        "arrival_time": [
+          11,
+          46
+        ],
+        "departure_time": [
+          11,
+          50
+        ]
       },
       {
         "station": "Shumen",
-        "arrival_time": [12, 52],
-        "departure_time": [12, 56]
+        "arrival_time": [
+          12,
+          52
+        ],
+        "departure_time": [
+          12,
+          56
+        ]
       },
-      { "station": "Varna", "arrival_time": [13, 44], "departure_time": null }
+      {
+        "station": "Varna",
+        "arrival_time": [
+          13,
+          44
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -181,12 +460,32 @@
     "train_id": "BV-1237",
     "name": "Plovdiv Local",
     "carriages": [
-      { "carriage_id": "BV1237-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1237-C2", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Plovdiv", "arrival_time": null, "departure_time": [9, 0] },
-      { "station": "Karlovo", "arrival_time": [9, 35], "departure_time": null }
+      {
+        "station": "Plovdiv",
+        "arrival_time": null,
+        "departure_time": [
+          9,
+          0
+        ]
+      },
+      {
+        "station": "Karlovo",
+        "arrival_time": [
+          9,
+          35
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -194,12 +493,32 @@
     "train_id": "BV-1238",
     "name": "Karlovo Local",
     "carriages": [
-      { "carriage_id": "BV1238-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1238-C2", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Karlovo", "arrival_time": null, "departure_time": [10, 0] },
-      { "station": "Plovdiv", "arrival_time": [10, 35], "departure_time": null }
+      {
+        "station": "Karlovo",
+        "arrival_time": null,
+        "departure_time": [
+          10,
+          0
+        ]
+      },
+      {
+        "station": "Plovdiv",
+        "arrival_time": [
+          10,
+          35
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -207,18 +526,47 @@
     "train_id": "IC-2003",
     "name": "Sredna Gora",
     "carriages": [
-      { "carriage_id": "IC2003-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2003-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2003-C3", "carriage_type": "bistro", "capacity": 30 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [8, 30] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          8,
+          30
+        ]
+      },
       {
         "station": "Plovdiv",
-        "arrival_time": [9, 50],
-        "departure_time": [9, 55]
+        "arrival_time": [
+          9,
+          50
+        ],
+        "departure_time": [
+          9,
+          55
+        ]
       },
-      { "station": "Karlovo", "arrival_time": [10, 30], "departure_time": null }
+      {
+        "station": "Karlovo",
+        "arrival_time": [
+          10,
+          30
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -226,15 +574,34 @@
     "train_id": "BV-1239",
     "name": "Rila",
     "carriages": [
-      { "carriage_id": "BV1239-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1239-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1239-C3", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [7, 30] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          7,
+          30
+        ]
+      },
       {
         "station": "Blagoevgrad",
-        "arrival_time": [8, 45],
+        "arrival_time": [
+          8,
+          45
+        ],
         "departure_time": null
       }
     ]
@@ -244,17 +611,36 @@
     "train_id": "BV-1240",
     "name": "Rila Return",
     "carriages": [
-      { "carriage_id": "BV1240-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1240-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1240-C3", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
       {
         "station": "Blagoevgrad",
         "arrival_time": null,
-        "departure_time": [9, 0]
+        "departure_time": [
+          9,
+          0
+        ]
       },
-      { "station": "Sofia", "arrival_time": [10, 15], "departure_time": null }
+      {
+        "station": "Sofia",
+        "arrival_time": [
+          10,
+          15
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -262,28 +648,62 @@
     "train_id": "IC-2004",
     "name": "Vitosha",
     "carriages": [
-      { "carriage_id": "IC2004-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2004-C2", "carriage_type": "2nd class", "capacity": 60 },
       {
-        "carriage_id": "IC2004-C3",
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
         "carriage_type": "sleeper",
         "capacity": 30
       },
-      { "carriage_id": "IC2004-C4", "carriage_type": "bistro", "capacity": 30 }
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      }
     ],
     "stops": [
-      { "station": "Vidin", "arrival_time": null, "departure_time": [5, 30] },
+      {
+        "station": "Vidin",
+        "arrival_time": null,
+        "departure_time": [
+          5,
+          30
+        ]
+      },
       {
         "station": "Montana",
-        "arrival_time": [6, 20],
-        "departure_time": [6, 25]
+        "arrival_time": [
+          6,
+          20
+        ],
+        "departure_time": [
+          6,
+          25
+        ]
       },
       {
         "station": "Pleven",
-        "arrival_time": [7, 25],
-        "departure_time": [7, 30]
+        "arrival_time": [
+          7,
+          25
+        ],
+        "departure_time": [
+          7,
+          30
+        ]
       },
-      { "station": "Sofia", "arrival_time": [9, 0], "departure_time": null }
+      {
+        "station": "Sofia",
+        "arrival_time": [
+          9,
+          0
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -291,19 +711,41 @@
     "train_id": "BV-1241",
     "name": "Struma",
     "carriages": [
-      { "carriage_id": "BV1241-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1241-C2", "carriage_type": "2nd class", "capacity": 60 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      }
     ],
     "stops": [
-      { "station": "Pleven", "arrival_time": null, "departure_time": [9, 0] },
+      {
+        "station": "Pleven",
+        "arrival_time": null,
+        "departure_time": [
+          9,
+          0
+        ]
+      },
       {
         "station": "Veliko Tarnovo",
-        "arrival_time": [9, 52],
-        "departure_time": [9, 57]
+        "arrival_time": [
+          9,
+          52
+        ],
+        "departure_time": [
+          9,
+          57
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [10, 55],
+        "arrival_time": [
+          10,
+          55
+        ],
         "departure_time": null
       }
     ]
@@ -313,34 +755,77 @@
     "train_id": "IC-2005",
     "name": "Yantra",
     "carriages": [
-      { "carriage_id": "IC2005-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2005-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2005-C3", "carriage_type": "bistro", "capacity": 30 },
       {
-        "carriage_id": "IC2005-C4",
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      },
+      {
         "carriage_type": "sleeper",
         "capacity": 30
       },
-      { "carriage_id": "IC2005-C5", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [6, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          6,
+          0
+        ]
+      },
       {
         "station": "Pleven",
-        "arrival_time": [7, 30],
-        "departure_time": [7, 35]
+        "arrival_time": [
+          7,
+          30
+        ],
+        "departure_time": [
+          7,
+          35
+        ]
       },
       {
         "station": "Veliko Tarnovo",
-        "arrival_time": [8, 27],
-        "departure_time": [8, 32]
+        "arrival_time": [
+          8,
+          27
+        ],
+        "departure_time": [
+          8,
+          32
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [9, 30],
-        "departure_time": [9, 35]
+        "arrival_time": [
+          9,
+          30
+        ],
+        "departure_time": [
+          9,
+          35
+        ]
       },
-      { "station": "Burgas", "arrival_time": [11, 20], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          11,
+          20
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -348,23 +833,58 @@
     "train_id": "BV-1242",
     "name": "Hebros",
     "carriages": [
-      { "carriage_id": "BV1242-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1242-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1242-C3", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Plovdiv", "arrival_time": null, "departure_time": [7, 0] },
+      {
+        "station": "Plovdiv",
+        "arrival_time": null,
+        "departure_time": [
+          7,
+          0
+        ]
+      },
       {
         "station": "Stara Zagora",
-        "arrival_time": [8, 0],
-        "departure_time": [8, 5]
+        "arrival_time": [
+          8,
+          0
+        ],
+        "departure_time": [
+          8,
+          5
+        ]
       },
       {
         "station": "Sliven",
-        "arrival_time": [8, 55],
-        "departure_time": [9, 0]
+        "arrival_time": [
+          8,
+          55
+        ],
+        "departure_time": [
+          9,
+          0
+        ]
       },
-      { "station": "Burgas", "arrival_time": [10, 10], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          10,
+          10
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -372,14 +892,40 @@
     "train_id": "IE-3003",
     "name": "Plovdiv Express",
     "carriages": [
-      { "carriage_id": "IE3003-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3003-C2", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3003-C3", "carriage_type": "quiet", "capacity": 40 },
-      { "carriage_id": "IE3003-C4", "carriage_type": "bistro", "capacity": 28 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 28
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [7, 0] },
-      { "station": "Plovdiv", "arrival_time": [8, 18], "departure_time": null }
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          7,
+          0
+        ]
+      },
+      {
+        "station": "Plovdiv",
+        "arrival_time": [
+          8,
+          18
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -387,14 +933,40 @@
     "train_id": "IE-3004",
     "name": "Sofia Express",
     "carriages": [
-      { "carriage_id": "IE3004-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3004-C2", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3004-C3", "carriage_type": "quiet", "capacity": 40 },
-      { "carriage_id": "IE3004-C4", "carriage_type": "bistro", "capacity": 28 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 28
+      }
     ],
     "stops": [
-      { "station": "Plovdiv", "arrival_time": null, "departure_time": [17, 0] },
-      { "station": "Sofia", "arrival_time": [18, 18], "departure_time": null }
+      {
+        "station": "Plovdiv",
+        "arrival_time": null,
+        "departure_time": [
+          17,
+          0
+        ]
+      },
+      {
+        "station": "Sofia",
+        "arrival_time": [
+          18,
+          18
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -402,13 +974,36 @@
     "train_id": "BV-1243",
     "name": "Coast",
     "carriages": [
-      { "carriage_id": "BV1243-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1243-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1243-C3", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Varna", "arrival_time": null, "departure_time": [8, 0] },
-      { "station": "Burgas", "arrival_time": [9, 20], "departure_time": null }
+      {
+        "station": "Varna",
+        "arrival_time": null,
+        "departure_time": [
+          8,
+          0
+        ]
+      },
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          9,
+          20
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -416,13 +1011,36 @@
     "train_id": "BV-1244",
     "name": "Coast Return",
     "carriages": [
-      { "carriage_id": "BV1244-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1244-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1244-C3", "carriage_type": "bike", "capacity": 20 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bike",
+        "capacity": 20
+      }
     ],
     "stops": [
-      { "station": "Burgas", "arrival_time": null, "departure_time": [10, 0] },
-      { "station": "Varna", "arrival_time": [11, 20], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": null,
+        "departure_time": [
+          10,
+          0
+        ]
+      },
+      {
+        "station": "Varna",
+        "arrival_time": [
+          11,
+          20
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -430,18 +1048,47 @@
     "train_id": "IC-2006",
     "name": "Dobrich Express",
     "carriages": [
-      { "carriage_id": "IC2006-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2006-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2006-C3", "carriage_type": "bistro", "capacity": 30 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      }
     ],
     "stops": [
-      { "station": "Varna", "arrival_time": null, "departure_time": [9, 0] },
+      {
+        "station": "Varna",
+        "arrival_time": null,
+        "departure_time": [
+          9,
+          0
+        ]
+      },
       {
         "station": "Shumen",
-        "arrival_time": [9, 50],
-        "departure_time": [9, 55]
+        "arrival_time": [
+          9,
+          50
+        ],
+        "departure_time": [
+          9,
+          55
+        ]
       },
-      { "station": "Dobrich", "arrival_time": [10, 47], "departure_time": null }
+      {
+        "station": "Dobrich",
+        "arrival_time": [
+          10,
+          47
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -449,17 +1096,39 @@
     "train_id": "BV-1245",
     "name": "Danube Return",
     "carriages": [
-      { "carriage_id": "BV1245-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1245-C2", "carriage_type": "2nd class", "capacity": 60 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      }
     ],
     "stops": [
-      { "station": "Varna", "arrival_time": null, "departure_time": [14, 0] },
+      {
+        "station": "Varna",
+        "arrival_time": null,
+        "departure_time": [
+          14,
+          0
+        ]
+      },
       {
         "station": "Shumen",
-        "arrival_time": [14, 50],
-        "departure_time": [14, 55]
+        "arrival_time": [
+          14,
+          50
+        ],
+        "departure_time": [
+          14,
+          55
+        ]
       },
-      { "station": "Ruse", "arrival_time": [16, 0], "departure_time": null }
+      {
+        "station": "Ruse",
+        "arrival_time": [
+          16,
+          0
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -467,24 +1136,62 @@
     "train_id": "IC-2007",
     "name": "Evening Balkan",
     "carriages": [
-      { "carriage_id": "IC2007-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2007-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2007-C3", "carriage_type": "bistro", "capacity": 30 },
-      { "carriage_id": "IC2007-C4", "carriage_type": "sleeper", "capacity": 30 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      },
+      {
+        "carriage_type": "sleeper",
+        "capacity": 30
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [15, 0] },
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          15,
+          0
+        ]
+      },
       {
         "station": "Plovdiv",
-        "arrival_time": [16, 20],
-        "departure_time": [16, 25]
+        "arrival_time": [
+          16,
+          20
+        ],
+        "departure_time": [
+          16,
+          25
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [17, 20],
-        "departure_time": [17, 25]
+        "arrival_time": [
+          17,
+          20
+        ],
+        "departure_time": [
+          17,
+          25
+        ]
       },
-      { "station": "Burgas", "arrival_time": [19, 15], "departure_time": null }
+      {
+        "station": "Burgas",
+        "arrival_time": [
+          19,
+          15
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -492,12 +1199,32 @@
     "train_id": "BV-1246",
     "name": "Evening Local",
     "carriages": [
-      { "carriage_id": "BV1246-C1", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "BV1246-C2", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Sofia", "arrival_time": null, "departure_time": [18, 0] },
-      { "station": "Plovdiv", "arrival_time": [19, 20], "departure_time": null }
+      {
+        "station": "Sofia",
+        "arrival_time": null,
+        "departure_time": [
+          18,
+          0
+        ]
+      },
+      {
+        "station": "Plovdiv",
+        "arrival_time": [
+          19,
+          20
+        ],
+        "departure_time": null
+      }
     ]
   },
   {
@@ -505,26 +1232,60 @@
     "train_id": "IC-2008",
     "name": "Northern Star",
     "carriages": [
-      { "carriage_id": "IC2008-C1", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IC2008-C2", "carriage_type": "2nd class", "capacity": 60 },
-      { "carriage_id": "IC2008-C3", "carriage_type": "bistro", "capacity": 30 },
-      { "carriage_id": "IC2008-C4", "carriage_type": "quiet", "capacity": 40 }
+      {
+        "carriage_type": "1st class",
+        "capacity": 50
+      },
+      {
+        "carriage_type": "2nd class",
+        "capacity": 60
+      },
+      {
+        "carriage_type": "bistro",
+        "capacity": 30
+      },
+      {
+        "carriage_type": "quiet",
+        "capacity": 40
+      }
     ],
     "stops": [
-      { "station": "Ruse", "arrival_time": null, "departure_time": [8, 0] },
+      {
+        "station": "Ruse",
+        "arrival_time": null,
+        "departure_time": [
+          8,
+          0
+        ]
+      },
       {
         "station": "Pleven",
-        "arrival_time": [9, 17],
-        "departure_time": [9, 22]
+        "arrival_time": [
+          9,
+          17
+        ],
+        "departure_time": [
+          9,
+          22
+        ]
       },
       {
         "station": "Veliko Tarnovo",
-        "arrival_time": [10, 14],
-        "departure_time": [10, 19]
+        "arrival_time": [
+          10,
+          14
+        ],
+        "departure_time": [
+          10,
+          19
+        ]
       },
       {
         "station": "Stara Zagora",
-        "arrival_time": [11, 17],
+        "arrival_time": [
+          11,
+          17
+        ],
         "departure_time": null
       }
     ]

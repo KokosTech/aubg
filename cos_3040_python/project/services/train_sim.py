@@ -29,30 +29,35 @@ class TrainSim:
     def rail_network(self):
         return self._rail_network
 
-    # -------------------------------------------------------------------------
-    # Train management
-    # -------------------------------------------------------------------------
+    # ============
+    # == Trains ==
+    # ============
 
     def add_train(self, train: BaseTrain):
         if not isinstance(train, BaseTrain):
             raise TypeError("train must be a BaseTrain instance")
         if train.train_id in self._trains:
             raise ValueError(f"Train '{train.train_id}' already exists")
+
         self._trains[train.train_id] = train
 
     def remove_train(self, train_id: str):
         if train_id not in self._trains:
             raise ValueError(f"Train '{train_id}' not found")
+
         self._trains.pop(train_id)
 
     def get_train(self, train_id: str) -> BaseTrain:
         if train_id not in self._trains:
             raise ValueError(f"Train '{train_id}' not found")
+
         return self._trains[train_id]
 
     def add_stop_to_train(self, train_id: str, stop: Stop, duration_minutes: int = 1):
         train = self.get_train(train_id)
         train.append_stop(stop, duration_minutes)
+
+        # used to check if the schedule is possible - according to track speed
         try:
             validate_train_schedule(train, self._rail_network)
         except ValueError as e:
@@ -60,15 +65,23 @@ class TrainSim:
             print(f"Error adding stop: {e}")
             raise
 
+    # ===========================================
+    # ==     Train Helpers for Rail Network    ==
+    # == used for deleting tracks and stations ==
+    # ===========================================
+
     def get_trains_using_station(self, station_name: str) -> list[str]:
         train_ids = []
+
         for train_id, train in self._trains.items():
             if any(stop.station.name == station_name for stop in train.stops):
                 train_ids.append(train_id)
+
         return train_ids
 
     def get_trains_using_track(self, from_station: str, to_station: str) -> list[str]:
         train_ids = []
+
         for train_id, train in self._trains.items():
             # Check if train has consecutive stops using this track
             for i in range(len(train.stops) - 1):
@@ -77,23 +90,26 @@ class TrainSim:
                 if current_station == from_station and next_station == to_station:
                     train_ids.append(train_id)
                     break
+
         return train_ids
 
     def remove_trains_using_station(self, station_name: str) -> list[str]:
         removed_ids = self.get_trains_using_station(station_name)
         for train_id in removed_ids:
             self.remove_train(train_id)
+
         return removed_ids
 
     def remove_trains_using_track(self, from_station: str, to_station: str) -> list[str]:
         removed_ids = self.get_trains_using_track(from_station, to_station)
         for train_id in removed_ids:
             self.remove_train(train_id)
+
         return removed_ids
 
-    # -------------------------------------------------------------------------
-    # Search
-    # -------------------------------------------------------------------------
+    # ============
+    # == Search ==
+    # ============
 
     def search_journeys(
             self,
@@ -128,9 +144,9 @@ class TrainSim:
                 self._sort_journeys(two_transfers, sort_by)
         )
 
-    # -------------------------------------------------------------------------
-    # Search helpers
-    # -------------------------------------------------------------------------
+    # =======================
+    # == Search Algorithms ==
+    # =======================
 
     def _find_direct(
             self,
@@ -170,6 +186,10 @@ class TrainSim:
         results = []
         visited = {from_station}
 
+        # the actual algorithm - it's pretty stupid
+        # the algorithm is a limited dfs (limited by max_transfers) that tries to find ANY path from from_station to to_station
+        # in a perfect world with proper time management, I would've implemented it using A* or Djikstra's
+        # TODO: implement a better algorithm in the summer
         def search(current_station, dept_time, legs, boardings, alightings, transfers_left):
             if transfers_left == 0:
                 return
@@ -210,6 +230,10 @@ class TrainSim:
         search(from_station, departure_time, [], [], [], max_transfers)
         return results
 
+    # ====================
+    # == Search Helpers ==
+    # ====================
+
     def _get_stop(self, train: BaseTrain, station_name: str) -> Stop | None:
         matches = [s for s in train.stops if s.station.name == station_name]
         return matches[0] if matches else None
@@ -225,9 +249,9 @@ class TrainSim:
             return sorted(journeys, key=lambda j: j.total_duration)
         return sorted(journeys, key=lambda j: j.departure_time)
 
-    # -------------------------------------------------------------------------
-    # Persistence
-    # -------------------------------------------------------------------------
+    # =====================
+    # == File I/O Trains ==
+    # =====================
 
     def save_trains_to_json(self, filename: str):
         data = []
@@ -252,8 +276,11 @@ class TrainSim:
                     for s in train.stops
                 ]
             })
-        with open(filename, "w") as f:
-            json.dump(data, f, indent=2)
+        try:
+            with open(filename, "w") as f:
+                json.dump(data, f, indent=2)
+        except IOError as e:
+            print(f"Error saving to {filename}: {e}")
 
     def load_trains_from_json(self, filename: str):
         self._trains.clear()
@@ -269,7 +296,6 @@ class TrainSim:
         if not isinstance(data, list):
             raise ValueError("Invalid trains JSON format: root should be a list")
 
-        # extend this dict when IntercityTrain / IntercityExpressTrain are added
         train_classes = {
             "PassengerTrain": PassengerTrain,
             "IntercityTrain": IntercityTrain,
