@@ -67,6 +67,12 @@ TrainSimPy is a COS3020 Project for bare-bones simulation of a train scheduling 
     ===============================================
 ```
 
+AI-Generated UML Diagram of the Project*
+
+<img width="883" height="1294" alt="image" src="https://github.com/user-attachments/assets/cedb0f2f-a46e-441a-afb1-915a01a1e3ef" />
+
+*Usually JetBrains PyCharm should be able to generate programatically a UML diagram but it kept failing on me, I tried using different free AI models for generating a UML diagram from the source code - Claude kind of did it
+
 ## Search Algorithm
 
 The search algorithm is implemented using a breadth-first search (BFS) approach. It is used to find the shortest path between two stations. It is also used to find the shortest path between two stations with a given departure time.
@@ -107,3 +113,4 @@ AI was used to generate all the json data for the rail network and trains (store
 
 - JetBrains AI (built-in functionality of PyCharm)
 - Claude - for generating the json data for the rail network and trains
+- Claude - for generating the "UML" diagram
