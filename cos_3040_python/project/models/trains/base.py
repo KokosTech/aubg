@@ -50,7 +50,7 @@ class BaseTrain(ABC):
     def add_carriage(self, carriage):
         pass
 
-    def add_stop(self, stop: Stop, duration: int):
+    def append_stop(self, stop: Stop, duration: int):
         if not isinstance(stop, Stop):
             raise TypeError("stop must be a Stop instance")
 
@@ -72,14 +72,15 @@ class BaseTrain(ABC):
         # new stop must be chronologically after the previous one
         if self._stops:
             prev = self._stops[-1]
-            prev.departure_time = prev.arrival_time + duration
 
-            if prev.departure_time and stop.arrival_time:
-                if stop.arrival_time <= prev.departure_time:
-                    raise ValueError(
-                        f"Stop at '{stop.station.name}' must arrive after previous stop "
-                        f"departs at {prev.departure_time}"
-                    )
+            if prev.departure_time is None:
+                prev.departure_time = prev.arrival_time + duration
+
+            if (prev.departure_time and stop.arrival_time) and (stop.arrival_time <= prev.departure_time):
+                raise ValueError(
+                    f"Stop at '{stop.station.name}' must arrive after previous stop "
+                    f"departs at {prev.departure_time}"
+                )
 
         self._stops.append(stop)
 
