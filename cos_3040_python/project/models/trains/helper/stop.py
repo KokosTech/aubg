@@ -24,4 +24,5 @@ class Stop:
 
     def __str__(self) -> str:
         return (f"{self.station.name}: "
-                f"{' - '.join(filter(lambda x: x != 'N/A', [self.arrival_time.__str__(), self.departure_time.__str__()]))}")
+                f"{' - '.join(filter(lambda x: x != 'N/A', [self.arrival_time.__str__() if self.arrival_time else 'N/A'
+                    , self.departure_time.__str__() if self.departure_time else 'N/A']))}")

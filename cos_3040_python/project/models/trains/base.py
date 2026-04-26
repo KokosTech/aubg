@@ -62,12 +62,12 @@ class BaseTrain(ABC):
             raise TypeError("stop must be a Stop instance")
 
         # if not the first stop, arrival_time is required
-        if self._stops and stop.arrival_time is None:
+        if len(self._stops) > 0 and stop.arrival_time is None:
             raise ValueError(
                 "arrival_time is required for all stops except the first")
 
         # if it is the first stop, departure_time is required
-        if not self._stops and stop.departure_time is None:
+        if len(self._stops) == 0 and stop.departure_time is None:
             raise ValueError("departure_time is required for the first stop")
 
         # arrival must be before departure at the same stop
@@ -98,6 +98,9 @@ class BaseTrain(ABC):
         raise NotFoundError(f"Carriage {carriage} not found")
 
     def get_time_length_from_to(self, from_station: str | None = None, to_station: str | None = None) -> int:
+        if len(self._stops) < 2:
+            return 0
+
         if from_station is None:
             from_station = self._stops[0].station.name
 
@@ -106,7 +109,7 @@ class BaseTrain(ABC):
 
         def get_stop(name: str) -> Stop:
             stop = list(filter(lambda s: s.station.name == name, self._stops))
-            if len(name) != 1:
+            if len(stop) != 1:
                 raise NotFoundError("from_station must be in the train's stops")
 
             return stop[0]

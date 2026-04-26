@@ -114,7 +114,7 @@ class RailNetwork:
                 data = json.load(f)
         except (FileNotFoundError, IOError) as e:
             print(f"Continuing with empty network. Error loading from {filename}: {e}")
-            return
+            raise
 
         if not all(key in data for key in ("stations", "tracks")):
             print("Invalid JSON format. Missing required keys. Continuing with empty network.")

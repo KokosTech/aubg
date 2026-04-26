@@ -58,6 +58,7 @@ class TrainSim:
         except ValueError as e:
             train.stops.remove(stop)
             print(f"Error adding stop: {e}")
+            raise
 
     # -------------------------------------------------------------------------
     # Search
@@ -215,8 +216,8 @@ class TrainSim:
                 "stops": [
                     {
                         "station": s.station.name,
-                        "arrival_time": list(s.arrival_time) if s.arrival_time else None,
-                        "departure_time": list(s.departure_time) if s.departure_time else None
+                        "arrival_time": [s.arrival_time.hour, s.arrival_time.minute] if s.arrival_time else None,
+                        "departure_time": [s.departure_time.hour, s.departure_time.minute] if s.departure_time else None
                     }
                     for s in train.stops
                 ]
@@ -226,8 +227,14 @@ class TrainSim:
 
     def load_trains_from_json(self, filename: str):
         self._trains.clear()
-        with open(filename, "r") as f:
-            data = json.load(f)
+        data = dict()
+
+        try:
+            with open(filename, "r") as f:
+                data = json.load(f)
+        except (FileNotFoundError, IOError) as e:
+            print(f"Continuing with empty train set. Error loading from {filename}: {e}")
+            raise
 
         # extend this dict when IntercityTrain / IntercityExpressTrain are added
         train_classes = {
