@@ -2,6 +2,7 @@
 
 import json
 
+from errors.custom_exceptions import NotFoundError
 from models.trains.intercity_express import IntercityExpressTrain
 from models.trains.intercity import IntercityTrain
 from models.trains.base import BaseTrain
@@ -66,7 +67,7 @@ class TrainSim:
             self,
             from_station: str,
             to_station: str,
-            departure_time: tuple[int, int] | None = None,
+            departure_time: Time | None = None,
             direct_only: bool = False,
             sort_by: str = "departure_time"
     ) -> list[Journey]:
@@ -103,7 +104,7 @@ class TrainSim:
             self,
             from_station: str,
             to_station: str,
-            departure_time: tuple[int, int] | None
+            departure_time: Time | None
     ) -> list[Journey]:
         results = []
         for train in self._trains.values():
@@ -131,7 +132,7 @@ class TrainSim:
             self,
             from_station: str,
             to_station: str,
-            departure_time: tuple[int, int] | None,
+            departure_time: Time | None,
             max_transfers: int
     ) -> list[Journey]:
         results = []
@@ -151,7 +152,7 @@ class TrainSim:
 
                 for leg in intermediates:
                     arrival = leg.alighting_stops[0].arrival_time
-                    next_dept = self._add_minutes(arrival, MIN_TRANSFER_TIME)
+                    next_dept = arrival + MIN_TRANSFER_TIME
 
                     # try to reach destination from via
                     final_legs = self._find_direct(via, to_station, next_dept)
@@ -188,10 +189,6 @@ class TrainSim:
         if from_station not in names or to_station not in names:
             return False
         return names.index(from_station) < names.index(to_station)
-
-    def _add_minutes(self, time: tuple[int, int], minutes: int) -> tuple[int, int]:
-        total = time[0] * 60 + time[1] + minutes
-        return total // 60, total % 60
 
     def _sort_journeys(self, journeys: list[Journey], sort_by: str) -> list[Journey]:
         if sort_by == "duration":
@@ -242,30 +239,36 @@ class TrainSim:
         }
 
         for item in data:
-            train_class = train_classes.get(item["type"])
-            if train_class is None:
-                raise ValueError(f"Unknown train type: {item['type']}")
+            try:
+                train_class = train_classes.get(item["type"])
+                if train_class is None:
+                    raise ValueError(f"Unknown train type: {item['type']}")
 
-            carriages = [
-                Carriage(CarriageType(
-                    c["carriage_type"].upper()), c["capacity"])
-                for c in item["carriages"]
-            ]
-            stops = [
-                Stop(
-                    station=self._rail_network.get_station(s["station"]),
-                    arrival_time=Time(
-                        s["arrival_time"][0], s["arrival_time"][1]
-                    ) if s["arrival_time"] else None,
-                    departure_time=Time(
-                        s["departure_time"][0], s["departure_time"][1]
-                    ) if s["departure_time"] else None,
-                )
-                for s in item["stops"]
-            ]
-            train = train_class(
-                item["train_id"], item["name"], carriages, stops)
-            self._trains[train.train_id] = train
+                carriages = [
+                    Carriage(CarriageType(
+                        c["carriage_type"].lower()), c["capacity"])
+                    for c in item["carriages"]
+                ]
+
+                stops = [
+                    Stop(
+                        station=self._rail_network.get_station(s["station"]),
+                        arrival_time=Time(
+                            s["arrival_time"][0], s["arrival_time"][1]
+                        ) if s["arrival_time"] else None,
+                        departure_time=Time(
+                            s["departure_time"][0], s["departure_time"][1]
+                        ) if s["departure_time"] else None,
+                    )
+                    for s in item["stops"]
+                ]
+                train = train_class(
+                    item["train_id"], item["name"], carriages, stops)
+                self._trains[train.train_id] = train
+            except NotFoundError as e:
+                print(f"Error loading train {item['train_id']}: {e}")
+            except Exception as e:
+                print(f"Error loading train {item['train_id']}: {e}")
 
     def __str__(self):
         return f"TrainSim({len(self._trains)} trains, {self._rail_network})"

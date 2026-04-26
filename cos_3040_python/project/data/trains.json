@@ -374,7 +374,8 @@
     "carriages": [
       { "carriage_id": "IE3003-C1", "carriage_type": "1st class", "capacity": 50 },
       { "carriage_id": "IE3003-C2", "carriage_type": "1st class", "capacity": 50 },
-      { "carriage_id": "IE3003-C3", "carriage_type": "quiet", "capacity": 40 }
+      { "carriage_id": "IE3003-C3", "carriage_type": "quiet", "capacity": 40 },
+      { "carriage_id": "IE3003-C4", "carriage_type": "bistro", "capacity": 28 }
     ],
     "stops": [
       { "station": "Sofia", "arrival_time": null, "departure_time": [7, 0] },

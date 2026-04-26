@@ -8,10 +8,8 @@ class IntercityExpressTrain(IntercityTrain):
         super().__init__(train_id, name, carriages, stops)
 
         # bistro is mandatory for intercity express
-        for carriage in self.carriages:
-            if carriage.carriage_type != CarriageType.BISTRO:
-                raise ValueError(
-                    "Intercity Express trains must have a Bistro carriage")
+        if not any(c.carriage_type == CarriageType.BISTRO for c in self._carriages):
+            raise ValueError("Intercity Express train must have a bistro carriage")
 
         self._reserved_seats = 0
 

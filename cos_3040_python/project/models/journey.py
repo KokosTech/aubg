@@ -14,7 +14,7 @@ class Journey:
     def total_duration(self) -> int:
         first_dep = self.boarding_stops[0].departure_time
         last_arr = self.alighting_stops[-1].arrival_time
-        return (last_arr[0] * 60 + last_arr[1]) - (first_dep[0] * 60 + first_dep[1])
+        return Time.time_diff_minutes(first_dep, last_arr)
 
     @property
     def departure_time(self) -> tuple[int, int]:
@@ -35,8 +35,15 @@ class Journey:
             zip(self.legs, self.boarding_stops, self.alighting_stops)
         ):
             lines.append(
-                f"  Leg {i + 1}: {leg.name} ({leg.train_id}) | "
+                f"\tLeg {i + 1}: {leg.name} ({leg.train_id}) | "
                 f"{board.station.name} {board.departure_time.__str__()} → "
                 f"{alight.station.name} {alight.arrival_time.__str__()}"
             )
+            # show transfer time (layover)
+            if i < len(self.boarding_stops) - 1:
+                next_board = self.boarding_stops[i + 1]
+                transfer_time = Time.time_diff_minutes(alight.arrival_time, next_board.departure_time)
+                lines.append(f"\t\tTransfer time: {Time.minutes_to_str(transfer_time)}")
+
+        lines.append("="*72)
         return "\n".join(lines)

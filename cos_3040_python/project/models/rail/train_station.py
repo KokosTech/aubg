@@ -1,12 +1,10 @@
-import re
-import uuid
+from regex.compiled_templates import check_valid_name
 
 
 class TrainStation:
     def __init__(self, name: str):
-        if not isinstance(name, str) or not re.match(r"^[A-Za-z\s]+$", name):
+        if not isinstance(name, str) or not check_valid_name.match(name):
             raise ValueError("name must be a non-empty string containing only letters and spaces")
-
         self._name = name
 
     # Names are Unique Identifiers for Train Stations
@@ -16,7 +14,7 @@ class TrainStation:
 
     @name.setter
     def name(self, value: str):
-        if not isinstance(value, str) or not re.match(r"^[A-Za-z\s]+$", value):
+        if not isinstance(value, str) or not check_valid_name.match(value):
             raise ValueError("name must be a non-empty string containing only letters and spaces")
 
         self._name = value
