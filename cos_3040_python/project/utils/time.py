@@ -32,9 +32,14 @@ class Time:
 
     @staticmethod
     def time_diff_minutes(self, other: Time) -> int:
+        if not isinstance(self, Time):
+            raise TypeError("self must be a Time instance")
         if not isinstance(other, Time):
             raise TypeError("other must be a Time instance")
-        return self.time_to_minutes(other) - self.time_to_minutes(self)
+        diff = self.time_to_minutes(other) - self.time_to_minutes(self)
+        if diff < 0:
+            diff += 24 * 60
+        return diff
 
     @staticmethod
     def time_to_str(time: Time | tuple[int, int] | None):
