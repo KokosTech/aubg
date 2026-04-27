@@ -1,7 +1,5 @@
 # TrainSimPy
 
-Short description to be written here :3 (1-2 paragraphs)
-
 TrainSimPy is a COS3020 Project for bare-bones simulation of a train scheduling system. It includes a hierarchy of train
 types alinged with the BDZ system of transportaion and train clasifications. It handles file persistency, simple cli
 operations (such as adding and removing), displaying the loaded information, and the most important functionallity -
@@ -120,6 +118,10 @@ python -m unittest discover tests
 coverage run -m unittest discover tests
 coverage report -m
 ```
+
+## Video
+
+[![video](https://img.youtube.com/vi/mlIE4NwPLwg/0.jpg)](https://www.youtube.com/watch?v=mlIE4NwPLwg)
 
 ## Use of Generative AI
 
