@@ -210,6 +210,12 @@ class TestModelsClasses(unittest.TestCase):
         # tests for str representation
         self.assertIn("Journey | Sofia", str(journey))
 
+    def test_base_train_comparison_with_non_train(self):
+        train = PassengerTrain("BV-9994", "Compare", [], [])
+        with self.assertRaises(TypeError):
+            _ = train < object()
+        with self.assertRaises(TypeError):
+            _ = train > object()
 
 if __name__ == "__main__":
     unittest.main()

@@ -81,10 +81,24 @@ class TestTrainSim(unittest.TestCase):
         track_users = self.sim.get_trains_using_track("Sofia", "Plovdiv")
         self.assertEqual(track_users, ["BV-1002"])
 
+    def test_search_validates_station_inputs(self):
+        with self.assertRaises(ValueError):
+            self.sim.search_journeys("Missing", "Burgas")
+        with self.assertRaises(ValueError):
+            self.sim.search_journeys("Sofia", "Missing")
+        with self.assertRaises(ValueError):
+            self.sim.search_journeys("Sofia", "Sofia")
+
     def test_remove_trains_using_track(self):
         removed = self.sim.remove_trains_using_track("Sofia", "Plovdiv")
         self.assertEqual(removed, ["BV-1002"])
         self.assertNotIn("BV-1002", self.sim.trains)
+
+    def test_remove_trains_using_station(self):
+        removed = self.sim.remove_trains_using_station("Plovdiv")
+        self.assertCountEqual(removed, ["BV-1002", "BV-1003"])
+        self.assertNotIn("BV-1002", self.sim.trains)
+        self.assertNotIn("BV-1003", self.sim.trains)
 
     def test_save_and_load_trains_round_trip(self):
         fd, path = tempfile.mkstemp(suffix=".json")
