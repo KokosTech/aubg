@@ -20,10 +20,22 @@ class Time:
 
     @property
     def to_minutes(self) -> int:
+        """To minutes.
+        Parameters:
+            None
+        Returns:
+            int: Return value.
+        """
         return self.hour * 60 + self.minute
 
     @staticmethod
     def minutes_to_time(minutes: int) -> Time:
+        """Minutes to time.
+        Parameters:
+            minutes (int): minutes value.
+        Returns:
+            Time: Return value.
+        """
         if minutes < 0:
             raise ValueError("minutes must be non-negative")
 
@@ -31,10 +43,22 @@ class Time:
 
     @staticmethod
     def time_to_minutes(time: Time) -> int:
+        """Time to minutes.
+        Parameters:
+            time (Time): time value.
+        Returns:
+            int: Return value.
+        """
         return time.to_minutes
 
     @staticmethod
     def time_diff_minutes(self, other: Time) -> int:
+        """Time diff minutes.
+        Parameters:
+            other (Time): other value.
+        Returns:
+            int: Return value.
+        """
         if not isinstance(self, Time):
             raise TypeError("self must be a Time instance")
         if not isinstance(other, Time):
@@ -46,6 +70,12 @@ class Time:
 
     @staticmethod
     def time_to_str(time: Time | tuple[int, int] | None):
+        """Time to str.
+        Parameters:
+            time (Time | tuple[int, int] | None): time value.
+        Returns:
+            None: Return value.
+        """
         if isinstance(time, tuple):
             return f"{time[0]:02d}:{time[1]:02d}" if time else "N/A"
 
@@ -53,6 +83,12 @@ class Time:
 
     @staticmethod
     def minutes_to_str(minutes: int):
+        """Minutes to str.
+        Parameters:
+            minutes (int): minutes value.
+        Returns:
+            None: Return value.
+        """
         hours = minutes // 60
         mins = minutes % 60
         return Time.time_to_str((hours, mins))

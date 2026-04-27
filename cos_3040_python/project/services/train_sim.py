@@ -23,10 +23,22 @@ class TrainSim:
 
     @property
     def trains(self):
+        """Trains value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._trains
 
     @property
     def rail_network(self):
+        """Rail network.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._rail_network
 
     # ============
@@ -34,6 +46,12 @@ class TrainSim:
     # ============
 
     def add_train(self, train: BaseTrain):
+        """Add train.
+        Parameters:
+            train (BaseTrain): train value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(train, BaseTrain):
             raise TypeError("train must be a BaseTrain instance")
         if train.train_id in self._trains:
@@ -42,18 +60,38 @@ class TrainSim:
         self._trains[train.train_id] = train
 
     def remove_train(self, train_id: str):
+        """Remove train.
+        Parameters:
+            train_id (str): train_id value.
+        Returns:
+            None: Return value.
+        """
         if train_id not in self._trains:
             raise ValueError(f"Train '{train_id}' not found")
 
         self._trains.pop(train_id)
 
     def get_train(self, train_id: str) -> BaseTrain:
+        """Get train.
+        Parameters:
+            train_id (str): train_id value.
+        Returns:
+            BaseTrain: Return value.
+        """
         if train_id not in self._trains:
             raise ValueError(f"Train '{train_id}' not found")
 
         return self._trains[train_id]
 
     def add_stop_to_train(self, train_id: str, stop: Stop, duration_minutes: int = 1):
+        """Add stop to train.
+        Parameters:
+            train_id (str): train_id value.
+            stop (Stop): stop value.
+            duration_minutes (int): duration_minutes value.
+        Returns:
+            None: Return value.
+        """
         train = self.get_train(train_id)
         train.append_stop(stop, duration_minutes)
 
@@ -71,6 +109,12 @@ class TrainSim:
     # ===========================================
 
     def get_trains_using_station(self, station_name: str) -> list[str]:
+        """Get trains using station.
+        Parameters:
+            station_name (str): station_name value.
+        Returns:
+            list[str]: Return value.
+        """
         train_ids = []
 
         for train_id, train in self._trains.items():
@@ -80,6 +124,13 @@ class TrainSim:
         return train_ids
 
     def get_trains_using_track(self, from_station: str, to_station: str) -> list[str]:
+        """Get trains using track.
+        Parameters:
+            from_station (str): from_station value.
+            to_station (str): to_station value.
+        Returns:
+            list[str]: Return value.
+        """
         train_ids = []
 
         for train_id, train in self._trains.items():
@@ -94,6 +145,12 @@ class TrainSim:
         return train_ids
 
     def remove_trains_using_station(self, station_name: str) -> list[str]:
+        """Remove trains using station.
+        Parameters:
+            station_name (str): station_name value.
+        Returns:
+            list[str]: Return value.
+        """
         removed_ids = self.get_trains_using_station(station_name)
         for train_id in removed_ids:
             self.remove_train(train_id)
@@ -101,6 +158,13 @@ class TrainSim:
         return removed_ids
 
     def remove_trains_using_track(self, from_station: str, to_station: str) -> list[str]:
+        """Remove trains using track.
+        Parameters:
+            from_station (str): from_station value.
+            to_station (str): to_station value.
+        Returns:
+            list[str]: Return value.
+        """
         removed_ids = self.get_trains_using_track(from_station, to_station)
         for train_id in removed_ids:
             self.remove_train(train_id)
@@ -119,6 +183,16 @@ class TrainSim:
             direct_only: bool = False,
             sort_by: str = "departure_time"
     ) -> list[Journey]:
+        """Search journeys.
+        Parameters:
+            from_station (str): from_station value.
+            to_station (str): to_station value.
+            departure_time (Time | None): departure_time value.
+            direct_only (bool): direct_only value.
+            sort_by (str): sort_by value.
+        Returns:
+            list[Journey]: Return value.
+        """
         if from_station not in self._rail_network.stations:
             raise ValueError(f"Station '{from_station}' not found")
         if to_station not in self._rail_network.stations:
@@ -254,6 +328,12 @@ class TrainSim:
     # =====================
 
     def save_trains_to_json(self, filename: str):
+        """Save trains to json.
+        Parameters:
+            filename (str): filename value.
+        Returns:
+            None: Return value.
+        """
         data = []
         for train in self._trains.values():
             data.append({
@@ -283,6 +363,12 @@ class TrainSim:
             print(f"Error saving to {filename}: {e}")
 
     def load_trains_from_json(self, filename: str):
+        """Load trains from json.
+        Parameters:
+            filename (str): filename value.
+        Returns:
+            None: Return value.
+        """
         self._trains.clear()
         data = dict()
 

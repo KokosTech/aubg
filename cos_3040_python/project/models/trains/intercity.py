@@ -15,6 +15,12 @@ class IntercityTrain(PassengerTrain):
     }
 
     def add_carriage(self, carriage: Carriage):
+        """Add carriage.
+        Parameters:
+            carriage (Carriage): carriage value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(carriage, Carriage):
             raise TypeError("carriage must be a Carriage instance")
 
@@ -28,9 +34,21 @@ class IntercityTrain(PassengerTrain):
 
     @property
     def has_bistro(self):
+        """Has bistro.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return any(c.carriage_type == CarriageType.BISTRO for c in self._carriages)
 
     def serve_food(self):
+        """Serve food.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         raise NotImplementedError("in the summer")
 
     def __str__(self):

@@ -30,26 +30,62 @@ class BaseTrain(ABC):
 
     @property
     def train_id(self):
+        """Train id.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._train_id
 
     @property
     def name(self):
+        """Name value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._name
 
     @property
     def carriages(self):
+        """Carriages value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._carriages
 
     @property
     def stops(self):
+        """Stops value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._stops
 
     @property
     def capacity(self):
+        """Capacity value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return sum(c.capacity for c in self._carriages)
 
     @property
     def duration(self):
+        """Duration value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         if not self._stops or len(self.stops) < 2:
             return 0
 
@@ -58,9 +94,22 @@ class BaseTrain(ABC):
     # abstract as adding a carriage depends on the type of train
     @abstractmethod
     def add_carriage(self, carriage):
+        """Add carriage.
+        Parameters:
+            carriage (Any): carriage value.
+        Returns:
+            None: Return value.
+        """
         pass
 
     def append_stop(self, stop: Stop, duration: int):
+        """Append stop.
+        Parameters:
+            stop (Stop): stop value.
+            duration (int): duration value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(stop, Stop):
             raise TypeError("stop must be a Stop instance")
 
@@ -95,12 +144,25 @@ class BaseTrain(ABC):
         self._stops.append(stop)
 
     def remove_carriage(self, carriage):
+        """Remove carriage.
+        Parameters:
+            carriage (Any): carriage value.
+        Returns:
+            None: Return value.
+        """
         if carriage in self._carriages:
             self._carriages.remove(carriage)
             return
         raise NotFoundError(f"Carriage {carriage} not found")
 
     def get_time_length_from_to(self, from_station: str | None = None, to_station: str | None = None) -> int:
+        """Get time length from to.
+        Parameters:
+            from_station (str | None): from_station value.
+            to_station (str | None): to_station value.
+        Returns:
+            int: Return value.
+        """
         if len(self._stops) < 2:
             return 0
 
@@ -135,6 +197,12 @@ class BaseTrain(ABC):
         return to_minutes - from_minutes
 
     def display_carriages(self):
+        """Display carriages.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         if not self._carriages:
             print(f"No carriages on {self._name} ({self._train_id})")
             return
@@ -144,6 +212,12 @@ class BaseTrain(ABC):
             print(f"  - {c}")
 
     def display_stops(self):
+        """Display stops.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         if not self._stops:
             print(f"No stops on {self._name} ({self._train_id})")
             return

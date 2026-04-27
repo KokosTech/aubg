@@ -13,20 +13,44 @@ class Journey:
 
     @property
     def total_duration(self) -> int:
+        """Total duration.
+        Parameters:
+            None
+        Returns:
+            int: Return value.
+        """
         first_dep = self.boarding_stops[0].departure_time
         last_arr = self.alighting_stops[-1].arrival_time
         return Time.time_diff_minutes(first_dep, last_arr)
 
     @property
     def departure_time(self) -> Time:
+        """Departure time.
+        Parameters:
+            None
+        Returns:
+            Time: Return value.
+        """
         return self.boarding_stops[0].departure_time
 
     @property
     def arrival_time(self) -> Time:
+        """Arrival time.
+        Parameters:
+            None
+        Returns:
+            Time: Return value.
+        """
         return self.alighting_stops[-1].arrival_time
 
     @property
     def num_transfers(self) -> int:
+        """Num transfers.
+        Parameters:
+            None
+        Returns:
+            int: Return value.
+        """
         return len(self.legs) - 1
 
     def __str__(self):

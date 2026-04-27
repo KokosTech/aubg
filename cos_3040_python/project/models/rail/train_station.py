@@ -12,10 +12,22 @@ class TrainStation:
     # Names are Unique Identifiers for Train Stations
     @property
     def name(self):
+        """Name value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._name
 
     @name.setter
     def name(self, value: str):
+        """Name value.
+        Parameters:
+            value (str): value value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(value, str) or not check_valid_name.match(value):
             raise ValueError("name must be a non-empty string containing only letters and spaces")
 

@@ -21,14 +21,32 @@ class Carriage:
 
     @property
     def carriage_type(self):
+        """Carriage type.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._carriage_type
 
     @property
     def capacity(self):
+        """Capacity value.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._capacity
 
     @capacity.setter
     def capacity(self, value: int):
+        """Capacity value.
+        Parameters:
+            value (int): value value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(value, int) or value <= 0:
             raise ValueError("capacity must be a positive integer")
         self._capacity = value

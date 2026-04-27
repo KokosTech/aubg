@@ -11,6 +11,12 @@ class PassengerTrain(BaseTrain):
 
     # you could have any carriage type from the constructor, but only allow certain types to be added later
     def add_carriage(self, carriage: Carriage):
+        """Add carriage.
+        Parameters:
+            carriage (Carriage): carriage value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(carriage, Carriage):
             raise TypeError("carriage must be a Carriage instance")
 
@@ -22,6 +28,12 @@ class PassengerTrain(BaseTrain):
         self._carriages.append(carriage)
 
     def get_journey_info(self) -> str:
+        """Get journey info.
+        Parameters:
+            None
+        Returns:
+            str: Return value.
+        """
         if not self._stops:
             return f"{self._name} ({self._train_id}) — no stops scheduled"
 

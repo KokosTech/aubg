@@ -16,6 +16,12 @@ class Stop:
 
     @staticmethod
     def check_validity(other: Stop) -> bool:
+        """Check validity.
+        Parameters:
+            other (Stop): other value.
+        Returns:
+            bool: Return value.
+        """
         if other.arrival_time is None or other.departure_time is None:
             return False
 
@@ -23,6 +29,13 @@ class Stop:
 
     @staticmethod
     def check_compatibility(prev: Stop, nex: Stop) -> bool:
+        """Check compatibility.
+        Parameters:
+            prev (Stop): prev value.
+            nex (Stop): nex value.
+        Returns:
+            bool: Return value.
+        """
         has_times = prev.departure_time is not None and nex.arrival_time is not None
         return has_times and nex.arrival_time > prev.departure_time
 

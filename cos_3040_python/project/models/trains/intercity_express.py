@@ -18,13 +18,31 @@ class IntercityExpressTrain(IntercityTrain):
 
     @property
     def reserved_seats(self):
+        """Reserved seats.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self._reserved_seats
 
     @property
     def available_seats(self):
+        """Available seats.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         return self.capacity - self.reserved_seats
 
     def reserve_seats(self, seats: int = 1):
+        """Reserve seats.
+        Parameters:
+            seats (int): seats value.
+        Returns:
+            None: Return value.
+        """
         if not isinstance(seats, int) or seats <= 0:
             raise ValueError("seats must be a positive integer")
         if self._reserved_seats + seats > self.capacity:

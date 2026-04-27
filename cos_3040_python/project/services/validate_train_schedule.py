@@ -1,8 +1,7 @@
-"""Validates train schedules against rail network constraints."""
+"""Check that a train's stop times are physically possible given track constraints."""
 
 
 def validate_train_schedule(train, rail_network):
-    """Check that a train's stop times are physically possible given track constraints."""
     stops = train.stops
     for i in range(len(stops) - 1):
         from_id = stops[i].station.name

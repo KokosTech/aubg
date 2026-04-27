@@ -23,6 +23,12 @@ class Handlers:
     # =============
 
     def handle_load(self):
+        """Handle load.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Load Data ===")
         try:
@@ -41,6 +47,12 @@ class Handlers:
     # =============
 
     def handle_add(self):
+        """Handle add.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         while True:
             clear_screen()
             print("=== Add ===")
@@ -68,6 +80,12 @@ class Handlers:
                 print("Invalid choice.")
 
     def add_station(self):
+        """Add station.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Add Station ===")
 
@@ -82,6 +100,12 @@ class Handlers:
         pause()
 
     def add_track(self):
+        """Add track.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Add Track ===")
         station_names = list(self.network.stations.keys())
@@ -102,6 +126,12 @@ class Handlers:
         pause()
 
     def add_train(self):
+        """Add train.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Add Train ===")
         print("Train type:")
@@ -133,6 +163,12 @@ class Handlers:
         pause()
 
     def add_stop(self):
+        """Add stop.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Add Stop to Train ===")
         train_ids = list(self.sim.trains.keys())
@@ -162,6 +198,12 @@ class Handlers:
         pause()
 
     def add_carriage_to_train(self):
+        """Add carriage to train.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Add Carriage to Train ===")
         train_ids = list(self.sim.trains.keys())
@@ -197,6 +239,12 @@ class Handlers:
     # ================
 
     def handle_modify(self):
+        """Handle modify.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         while True:
             clear_screen()
             print("=== Modify ===")
@@ -225,6 +273,12 @@ class Handlers:
                 print("Invalid choice.")
 
     def rename_station(self):
+        """Rename station.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Rename Station ===")
 
@@ -243,6 +297,12 @@ class Handlers:
         pause()
 
     def remove_station(self):
+        """Remove station.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Remove Station ===")
 
@@ -266,6 +326,12 @@ class Handlers:
         pause()
 
     def remove_track(self):
+        """Remove track.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Remove Track ===")
 
@@ -295,6 +361,12 @@ class Handlers:
         pause()
 
     def remove_train(self):
+        """Remove train.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Remove Train ===")
 
@@ -312,6 +384,12 @@ class Handlers:
         pause()
 
     def remove_carriage_from_train(self):
+        """Remove carriage from train.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Remove Carriage from Train ===")
 
@@ -361,6 +439,12 @@ class Handlers:
     # ==============
 
     def handle_list(self):
+        """Handle list.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         while True:
             clear_screen()
             print("=== List ===")
@@ -404,6 +488,12 @@ class Handlers:
     # ================
 
     def handle_search(self):
+        """Handle search.
+        Parameters:
+            None
+        Returns:
+            None: Return value.
+        """
         clear_screen()
         print("=== Find Journey ===")
 
