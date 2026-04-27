@@ -1289,5 +1289,34 @@
         "departure_time": null
       }
     ]
+  },
+  {
+    "type": "IntercityTrain",
+    "train_id": "IC-2020",
+    "name": "Vinna Express",
+    "carriages": [
+      {
+        "carriage_type": "1st class",
+        "capacity": 60
+      }
+    ],
+    "stops": [
+      {
+        "station": "Zurich",
+        "arrival_time": null,
+        "departure_time": [
+          8,
+          0
+        ]
+      },
+      {
+        "station": "Vienna",
+        "arrival_time": [
+          10,
+          0
+        ],
+        "departure_time": null
+      }
+    ]
   }
 ]

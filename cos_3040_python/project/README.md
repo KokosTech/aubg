@@ -24,26 +24,28 @@ functions such as booking, registering, etc, would be implemented
         - data - used to store files for input and persistency for the railway network and trains
         - models - used for all classes and data classes in the program
             - rail - package which includes all classes for the rail network, such as:
-                - track.py - TODO ...
-                - train_station.py - TODO ...
-                - rail_network.py - TODO ...
+                - track.py - dataclass defining rail tracks connecting stations with distance and speed constraints
+                - train_station.py - defines train stations with name validation using regex patterns
+                - rail_network.py - manages the rail network graph storing stations and tracks with persistence operations
             - trains - package including all train types
                 - helper - package including any 'has-a' classes for the trains
-                    - carriage.py - TODO ...
-                    - carriage_types.py - TODO ...
-                    - stop.py - TODO ...
-                - base.py - TODO ...
-                - passenger.py - TODO ...
-                - intercity.py - TODO ...
-                - intercity_express.py - TODO ...
+                    - carriage.py - defines train carriages with type and capacity validation
+                    - carriage_types.py - enum defining available carriage types (sleeper, 1st/2nd class, bistro, quiet, bike)
+                    - stop.py - dataclass defining scheduled train stops with arrival/departure times and validity checks
+                - base.py - abstract base class for all trains with validation for train ID, name, carriages, and stops
+                - passenger.py - passenger train implementation restricting carriage types to 2nd class, bike, and quiet
+                - intercity.py - intercity train extending passenger train allowing all carriage types including sleeper and bistro
+                - intercity_express.py - premium intercity express train requiring mandatory bistro carriage and seat reservations
             - services - package containing the logic of the project - the actual simulation
-                - train_sim.py - TODO ...
-                - validate_train_schedule.py - TODO ...
+                - train_sim.py - main simulation service providing train search, routing algorithms, and journey planning
+                - validate_train_schedule.py - validates train schedules are physically possible given track distance and speed constraints
 
         - utils - package including core project scripts, such as:
             - config.py - parses configuration file
             - menu.py - handles the the user input as well as the CLI interface
-            - time_to_string.py - helper function used across the project to convert tuple (int, int) or just a single int to a formatted time string
+            - ui.py - handles the display of the information in a user-friendly way
+            - handlers.py - includes handlers for the user input and calls the corresponding functions in the services
+            - time.py - dataclass for handling time with validation and comparison operations
         - tests - package including all tests for this project
         
         main.py - starter of the whole project

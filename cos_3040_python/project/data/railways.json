@@ -14,44 +14,232 @@
     "Shumen",
     "Sliven",
     "Dobrich",
-    "Karlovo"
+    "Karlovo",
+    "Zurich",
+    "Vienna"
   ],
   "tracks": [
-    { "from": "Sofia",          "to": "Plovdiv",         "distance_km": 150.0, "max_speed_kmh": 120 },
-    { "from": "Plovdiv",        "to": "Sofia",           "distance_km": 150.0, "max_speed_kmh": 120 },
-    { "from": "Plovdiv",        "to": "Stara Zagora",    "distance_km": 85.0,  "max_speed_kmh": 100 },
-    { "from": "Stara Zagora",   "to": "Plovdiv",         "distance_km": 85.0,  "max_speed_kmh": 100 },
-    { "from": "Stara Zagora",   "to": "Burgas",          "distance_km": 170.0, "max_speed_kmh": 100 },
-    { "from": "Burgas",         "to": "Stara Zagora",    "distance_km": 170.0, "max_speed_kmh": 100 },
-    { "from": "Stara Zagora",   "to": "Sliven",          "distance_km": 65.0,  "max_speed_kmh": 90  },
-    { "from": "Sliven",         "to": "Stara Zagora",    "distance_km": 65.0,  "max_speed_kmh": 90  },
-    { "from": "Sliven",         "to": "Burgas",          "distance_km": 105.0, "max_speed_kmh": 100 },
-    { "from": "Burgas",         "to": "Sliven",          "distance_km": 105.0, "max_speed_kmh": 100 },
-    { "from": "Varna",          "to": "Burgas",          "distance_km": 130.0, "max_speed_kmh": 110 },
-    { "from": "Burgas",         "to": "Varna",           "distance_km": 130.0, "max_speed_kmh": 110 },
-    { "from": "Varna",          "to": "Shumen",          "distance_km": 90.0,  "max_speed_kmh": 120 },
-    { "from": "Shumen",         "to": "Varna",           "distance_km": 90.0,  "max_speed_kmh": 120 },
-    { "from": "Shumen",         "to": "Ruse",            "distance_km": 100.0, "max_speed_kmh": 100 },
-    { "from": "Ruse",           "to": "Shumen",          "distance_km": 100.0, "max_speed_kmh": 100 },
-    { "from": "Ruse",           "to": "Pleven",          "distance_km": 120.0, "max_speed_kmh": 100 },
-    { "from": "Pleven",         "to": "Ruse",            "distance_km": 120.0, "max_speed_kmh": 100 },
-    { "from": "Pleven",         "to": "Sofia",           "distance_km": 170.0, "max_speed_kmh": 120 },
-    { "from": "Sofia",          "to": "Pleven",          "distance_km": 170.0, "max_speed_kmh": 120 },
-    { "from": "Pleven",         "to": "Veliko Tarnovo",  "distance_km": 70.0,  "max_speed_kmh": 90  },
-    { "from": "Veliko Tarnovo", "to": "Pleven",          "distance_km": 70.0,  "max_speed_kmh": 90  },
-    { "from": "Veliko Tarnovo", "to": "Stara Zagora",    "distance_km": 90.0,  "max_speed_kmh": 100 },
-    { "from": "Stara Zagora",   "to": "Veliko Tarnovo",  "distance_km": 90.0,  "max_speed_kmh": 100 },
-    { "from": "Sofia",          "to": "Blagoevgrad",     "distance_km": 100.0, "max_speed_kmh": 90  },
-    { "from": "Blagoevgrad",    "to": "Sofia",           "distance_km": 100.0, "max_speed_kmh": 90  },
-    { "from": "Plovdiv",        "to": "Karlovo",         "distance_km": 40.0,  "max_speed_kmh": 80  },
-    { "from": "Karlovo",        "to": "Plovdiv",         "distance_km": 40.0,  "max_speed_kmh": 80  },
-    { "from": "Vidin",          "to": "Montana",         "distance_km": 60.0,  "max_speed_kmh": 80  },
-    { "from": "Montana",        "to": "Vidin",           "distance_km": 60.0,  "max_speed_kmh": 80  },
-    { "from": "Montana",        "to": "Pleven",          "distance_km": 85.0,  "max_speed_kmh": 90  },
-    { "from": "Pleven",         "to": "Montana",         "distance_km": 85.0,  "max_speed_kmh": 90  },
-    { "from": "Shumen",         "to": "Dobrich",         "distance_km": 70.0,  "max_speed_kmh": 90  },
-    { "from": "Dobrich",        "to": "Shumen",          "distance_km": 70.0,  "max_speed_kmh": 90  },
-    { "from": "Veliko Tarnovo", "to": "Ruse",            "distance_km": 85.0,  "max_speed_kmh": 100 },
-    { "from": "Ruse",           "to": "Veliko Tarnovo",  "distance_km": 85.0,  "max_speed_kmh": 100 }
+    {
+      "from": "Sofia",
+      "to": "Plovdiv",
+      "distance_km": 150.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Plovdiv",
+      "to": "Sofia",
+      "distance_km": 150.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Plovdiv",
+      "to": "Stara Zagora",
+      "distance_km": 85.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Stara Zagora",
+      "to": "Plovdiv",
+      "distance_km": 85.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Stara Zagora",
+      "to": "Burgas",
+      "distance_km": 170.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Burgas",
+      "to": "Stara Zagora",
+      "distance_km": 170.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Stara Zagora",
+      "to": "Sliven",
+      "distance_km": 65.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Sliven",
+      "to": "Stara Zagora",
+      "distance_km": 65.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Sliven",
+      "to": "Burgas",
+      "distance_km": 105.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Burgas",
+      "to": "Sliven",
+      "distance_km": 105.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Varna",
+      "to": "Burgas",
+      "distance_km": 130.0,
+      "max_speed_kmh": 110
+    },
+    {
+      "from": "Burgas",
+      "to": "Varna",
+      "distance_km": 130.0,
+      "max_speed_kmh": 110
+    },
+    {
+      "from": "Varna",
+      "to": "Shumen",
+      "distance_km": 90.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Shumen",
+      "to": "Varna",
+      "distance_km": 90.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Shumen",
+      "to": "Ruse",
+      "distance_km": 100.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Ruse",
+      "to": "Shumen",
+      "distance_km": 100.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Ruse",
+      "to": "Pleven",
+      "distance_km": 120.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Pleven",
+      "to": "Ruse",
+      "distance_km": 120.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Pleven",
+      "to": "Sofia",
+      "distance_km": 170.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Sofia",
+      "to": "Pleven",
+      "distance_km": 170.0,
+      "max_speed_kmh": 120
+    },
+    {
+      "from": "Pleven",
+      "to": "Veliko Tarnovo",
+      "distance_km": 70.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Veliko Tarnovo",
+      "to": "Pleven",
+      "distance_km": 70.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Veliko Tarnovo",
+      "to": "Stara Zagora",
+      "distance_km": 90.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Stara Zagora",
+      "to": "Veliko Tarnovo",
+      "distance_km": 90.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Sofia",
+      "to": "Blagoevgrad",
+      "distance_km": 100.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Blagoevgrad",
+      "to": "Sofia",
+      "distance_km": 100.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Plovdiv",
+      "to": "Karlovo",
+      "distance_km": 40.0,
+      "max_speed_kmh": 80
+    },
+    {
+      "from": "Karlovo",
+      "to": "Plovdiv",
+      "distance_km": 40.0,
+      "max_speed_kmh": 80
+    },
+    {
+      "from": "Vidin",
+      "to": "Montana",
+      "distance_km": 60.0,
+      "max_speed_kmh": 80
+    },
+    {
+      "from": "Montana",
+      "to": "Vidin",
+      "distance_km": 60.0,
+      "max_speed_kmh": 80
+    },
+    {
+      "from": "Montana",
+      "to": "Pleven",
+      "distance_km": 85.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Pleven",
+      "to": "Montana",
+      "distance_km": 85.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Shumen",
+      "to": "Dobrich",
+      "distance_km": 70.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Dobrich",
+      "to": "Shumen",
+      "distance_km": 70.0,
+      "max_speed_kmh": 90
+    },
+    {
+      "from": "Veliko Tarnovo",
+      "to": "Ruse",
+      "distance_km": 85.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Ruse",
+      "to": "Veliko Tarnovo",
+      "distance_km": 85.0,
+      "max_speed_kmh": 100
+    },
+    {
+      "from": "Zurich",
+      "to": "Vienna",
+      "distance_km": 300.0,
+      "max_speed_kmh": 230
+    }
   ]
 }
