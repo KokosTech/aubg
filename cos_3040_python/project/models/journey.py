@@ -1,4 +1,7 @@
+"""Defines journey data used for train route search results."""
+
 from dataclasses import dataclass
+
 from utils.time import Time
 
 

@@ -1,3 +1,5 @@
+"""Tests train creation and schedule validation behavior."""
+
 import unittest
 
 from models.rail.rail_network import RailNetwork

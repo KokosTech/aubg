@@ -1,3 +1,5 @@
+"""Defines available train carriage types."""
+
 from enum import Enum
 
 

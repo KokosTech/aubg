@@ -1,4 +1,7 @@
+"""Defines a simple time model and time conversion helpers."""
+
 from __future__ import annotations
+
 from dataclasses import dataclass
 
 

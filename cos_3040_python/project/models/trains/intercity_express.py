@@ -1,6 +1,8 @@
+"""Defines intercity express train behavior and carriage rules."""
+
 from models.trains.helper.carriage import CarriageType
-from models.trains.intercity import IntercityTrain
 from models.trains.helper.stop import Stop
+from models.trains.intercity import IntercityTrain
 
 
 class IntercityExpressTrain(IntercityTrain):

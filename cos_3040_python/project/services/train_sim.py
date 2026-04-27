@@ -1,4 +1,4 @@
-"""Module containing TrainSim, the main orchestrator for the train simulation."""
+"""Provides the main train simulation service logic."""
 
 import json
 

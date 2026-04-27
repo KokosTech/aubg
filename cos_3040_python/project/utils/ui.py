@@ -1,3 +1,5 @@
+"""Provides console UI helpers for menus, input, and display."""
+
 import os
 import subprocess
 

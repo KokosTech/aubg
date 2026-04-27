@@ -1,3 +1,5 @@
+"""Defines intercity train behavior and allowed carriage types."""
+
 from models.trains.helper.carriage import Carriage, CarriageType
 from models.trains.passenger import PassengerTrain
 

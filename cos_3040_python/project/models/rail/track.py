@@ -1,3 +1,5 @@
+"""Defines rail tracks connecting train stations."""
+
 from dataclasses import dataclass
 
 

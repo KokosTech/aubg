@@ -1,3 +1,5 @@
+"""Tests rail network station and track behavior."""
+
 import io
 import json
 import os

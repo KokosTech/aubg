@@ -1,4 +1,4 @@
-"""Module containing the PassengerTrain class, a concrete implementation of BaseTrain."""
+"""Defines passenger train behavior and carriage rules."""
 
 from models.trains.base import BaseTrain
 from models.trains.helper.carriage import Carriage, CarriageType

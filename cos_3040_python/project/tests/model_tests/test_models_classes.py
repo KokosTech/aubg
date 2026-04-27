@@ -1,3 +1,5 @@
+"""Tests core model classes for trains, stations, and helpers."""
+
 import io
 import unittest
 from contextlib import redirect_stdout
@@ -216,6 +218,7 @@ class TestModelsClasses(unittest.TestCase):
             _ = train < object()
         with self.assertRaises(TypeError):
             _ = train > object()
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,3 +1,5 @@
+"""Manages train stations, tracks, and rail network persistence."""
+
 import json
 
 from errors.custom_exceptions import NotFoundError

@@ -1,3 +1,5 @@
+"""Loads application configuration values and defaults."""
+
 import configparser
 import os
 

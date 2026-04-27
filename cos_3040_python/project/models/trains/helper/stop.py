@@ -1,4 +1,7 @@
+"""Defines scheduled train stops with arrival and departure times."""
+
 from __future__ import annotations
+
 from dataclasses import dataclass
 
 from models.rail.train_station import TrainStation
@@ -24,5 +27,8 @@ class Stop:
         return has_times and nex.arrival_time > prev.departure_time
 
     def __str__(self) -> str:
-        return (f"{self.station.name}: "
-                f"{' - '.join(filter(lambda x: x != 'N/A', [self.arrival_time.__str__() if self.arrival_time else 'N/A', self.departure_time.__str__() if self.departure_time else 'N/A']))}")
+        def filter_none():
+            return filter(lambda x: x != 'N/A', [self.arrival_time.__str__() if self.arrival_time else 'N/A',
+                                                 self.departure_time.__str__() if self.departure_time else 'N/A'])
+
+        return f"{self.station.name}: {' - '.join(filter_none())}"

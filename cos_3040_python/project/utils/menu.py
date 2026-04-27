@@ -1,5 +1,4 @@
-# displays the menu and handles input from the user
-
+"""Runs the main application menu and routes user choices."""
 
 from utils.handlers import Handlers
 from utils.ui import clear_screen, display_menu

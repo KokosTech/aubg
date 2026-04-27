@@ -1,3 +1,5 @@
+"""Tests train simulation service operations."""
+
 import json
 import os
 import tempfile

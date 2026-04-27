@@ -1,3 +1,5 @@
+"""Defines train stations and station name validation."""
+
 from regex.compiled_templates import check_valid_name
 
 

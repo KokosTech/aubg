@@ -1,3 +1,5 @@
+"""Defines the abstract base model for all trains."""
+
 import re
 from abc import ABC, abstractmethod
 

@@ -1,6 +1,8 @@
 """
 
 # Project: COS 3040 Python Project
+    - Kaloyan Doychinov
+    - 200 275 606
 
 """
 

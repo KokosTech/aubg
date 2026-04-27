@@ -1,3 +1,5 @@
+"""Defines train carriages and carriage capacity validation."""
+
 from models.trains.helper.carriage_types import CarriageType
 from utils.config import DEFAULT_CARRIAGE_CAPACITY
 

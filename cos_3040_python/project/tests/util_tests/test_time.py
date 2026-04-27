@@ -1,3 +1,5 @@
+"""Tests time conversion, comparison, and formatting helpers."""
+
 import unittest
 
 from utils.time import Time

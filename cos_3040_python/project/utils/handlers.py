@@ -1,14 +1,16 @@
-from utils.ui import clear_screen, parse_time, pause, pick_from_list
+"""Handles user actions from the console menu."""
+
+from errors.custom_exceptions import NotFoundError
 from models.rail.rail_network import RailNetwork
+from models.trains.helper.carriage import Carriage
+from models.trains.helper.carriage_types import CarriageType
 from models.trains.helper.stop import Stop
 from models.trains.intercity import IntercityTrain
 from models.trains.intercity_express import IntercityExpressTrain
 from models.trains.passenger import PassengerTrain
 from services.train_sim import TrainSim
 from utils.config import DEFAULT_CARRIAGE_CAPACITY, RAILWAYS_FILE, TRAINS_FILE
-from errors.custom_exceptions import NotFoundError
-from models.trains.helper.carriage import Carriage
-from models.trains.helper.carriage_types import CarriageType
+from utils.ui import clear_screen, parse_time, pause, pick_from_list
 
 
 class Handlers:
