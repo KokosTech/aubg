@@ -135,5 +135,6 @@ during the exams).
 ## Sources
 
 - [Python Docs](https://docs.python.org/3.10/) – 3.10 as it's the one I'm using on my daily-driver
+- [Coverage Docs](https://coverage.readthedocs.io/)
 - StackOverflow
 - Reddit
