@@ -1,0 +1,15 @@
+id;name;age;course;grade
+3;Georgi Ivanov;19;Math;64
+1;John Doe;20;Physics;85
+5;Petar Nikolov;23;Math;97
+2;Anna Petrova;22;Biology;95
+1;John Doe;20;Math;78
+4;Maria Dimitrova;21;Chemistry;83
+6;Elena Georgieva;20;Biology;75
+2;Anna Petrova;22;Math;92
+3;Georgi Ivanov;19;Physics;71
+5;Petar Nikolov;23;Informatics;93
+1;John Doe;20;Informatics;69
+4;Maria Dimitrova;21;Biology;79
+6;Elena Georgieva;20;Chemistry;68
+2;Anna Petrova;22;Chemistry;88
